@@ -46,7 +46,7 @@
 
     //get branch data
     dataFactory.getBranchDetailsData = function () {
-        debugger;
+        //debugger;
         return $http.post('/Branch/GetBranch');
 
     };
@@ -89,7 +89,7 @@
 
     //getmember branch data
     dataFactory.getBranchData = function () {
-        debugger;
+        //debugger;
         return $http.post('/Member/GetMemberBranchData');
     };
 
