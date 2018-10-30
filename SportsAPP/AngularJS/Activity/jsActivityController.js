@@ -33,9 +33,9 @@
 
         AjsFactory.getBranchDetailsData()
             .then(function (resopnse) {
-                debugger;
+                //debugger;
                 if (resopnse.data[0].length != 0) {
-                     debugger;
+                     //debugger;
                     $scope.BranchLst = JSON.parse(resopnse.data);  //resopnse.data;
 
                 }

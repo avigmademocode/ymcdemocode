@@ -165,14 +165,14 @@
     };
 
     $scope.GetBranchData = function () {
-        debugger;
+        //debugger;
 
         AjsFactory.getBranchData()
             .then(function (response) {
-                debugger;
+                //debugger;
                 //alert(response.data.length);
                 if (response.data.length != 0) {
-                    debugger;
+                    //debugger;
                     $scope.branchLst = response.data[0];
                 }
             });

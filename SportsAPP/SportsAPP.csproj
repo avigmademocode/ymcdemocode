@@ -201,6 +201,7 @@
     <Compile Include="Repository\Data\UserDetailsData.cs" />
     <Compile Include="Repository\Data\UserRoleRelationshipDetailsData.cs" />
     <Compile Include="Repository\Lib\MyDataSourceFactory.cs" />
+    <Compile Include="Repository\Security\SecurityHelper.cs" />
     <Compile Include="YMCA_connectionString.cs" />
   </ItemGroup>
   <ItemGroup>
