@@ -1,0 +1,223 @@
+﻿
+@{
+    ViewBag.Title = "CreateActivity";
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+}
+<script src="~/AngularJS/ActivityReceipt/jsActivityReceiptController.js"></script>
+<script src="~/AngularJS/AjsFactory/AjsFactory.js"></script>
+
+
+<div ng-controller="ActivityReceiptController">
+    <div class="content">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Create Activity Receipt</h4>
+                <div class="container">
+                    <form class="form " ng-submit="addReceipt()">
+                        <div class="row">
+                            @*<div class="col-lg-4 ">
+                                    <div class="form-group">
+                                        <label for="ActivityId2">Acticity Id</label>
+                                        <div class="input-group">
+                                            <input class="form-control" id="inputActivityid2" placeholder="" type="text">
+                                        </div>
+                                    </div>
+                                </div>*@
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label for="Recipt2">Receipt No.</label>
+                                    <div class="input-group">
+                                        <input class="form-control" id="Receipt" type="text" ng-model="form.receiptno" required/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="offset-lg-4 col-lg-4">
+                                <div class="form-group">
+                                    <label for="Date2">Date</label>
+                                    <div class="input-group">
+                                        <input class="form-control" id="Date2" type="date" ng-model="form.currdate">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @*<----------------//--------------->*@
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <!-- Button trigger modal -->
+                                @*<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                                        Launch demo modal
+                                    </button>*@
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>this is my page</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @*<div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="inputcheckbox1">Register Member</label>
+                                    <input type="checkbox" class="form-control" id="inputcheckbox1" ng-model="form.register">
+                                                                 </div>
+                            </div>*@
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 ">
+                                <div class="form-group">
+                                    <label for="inputActivity2">Member Id</label>
+                                    <div class="input-group">
+                                        <input class="form-control" id="inputActivityid2" placeholder="" type="text" ng-model="form.memberId" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label for="Member2">Member Name</label>
+                                    <div class="input-group">
+                                        <input class="form-control" id="inputActivityname2" placeholder="Enter Member Name" type="text" ng-model="form.membername" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label for="Activity">Activity</label>
+                                    <select class="custom-select form-control" id="Activity" name="location" required ng-model="form.activity">
+                                        <option value="">Choose Activity</option>
+                                        <option value="1">Basket Ball</option>
+                                        <option value="2">Swimming</option>
+                                        <option value="3">Table Tennis</option>
+                                        <option value="4">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 ">
+                                <div class="form-group">
+                                    <label for="Date2">Valid From</label>
+                                    <div class="input-group">
+                                        <input class="form-control" id="Date2" type="date" ng-model="form.validfrom">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label for="Date2">Valid Up To</label>
+                                    <div class="input-group">
+                                        <input class="form-control" id="Date2" type="date" ng-model="form.validupto">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label for="Branch">Branch :</label>
+                                    <select class="custom-select form-control" id="Branch" data-placeholder="Type to search cities" name="intType1" ng-model="form.branch">
+                                        <option value="">Choose Branch</option>
+                                        <option value="1">Mumbai</option>
+                                        <option value="2">Nagpur</option>
+                                        <option value="3">Bhopal</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label for="City">City :</label>
+                                    <select class="custom-select form-control" id="City" name="location" ng-model="form.city">
+                                        <option value="">Select City</option>
+                                        <option value="1">Mumbai</option>
+                                        <option value="2">Nagpur</option>
+                                        <option value="3">Bhopal</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <div class="form-group">
+                                    <label for="PaidBy">Paid By </label>
+                                    <select class="custom-select form-control" id="PaidBy" name="location" ng-model="form.paidby">
+                                        <option value="">Select Paid by...</option>
+                                        <option value="1">Cash</option>
+                                        <option value="2">Chaque</option>
+                                        <option value="3">Card</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="offset-lg-6 col-lg-4">
+                                <div class="form-group">
+                                    <label for="Amount2">Amount</label>
+                                    <div class="input-group">
+                                        <input class="form-control" id="Amount2" type="text" required ng-model="form.amount">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="row">
+
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label for="Chaque">Cheque No</label>
+                                    <div class="input-group">
+                                        <input class="form-control" id="Chaque" type="text" required ng-model="form.chequeno">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label for="Date2">Cheque Date</label>
+                                    <div class="input-group">
+                                        <input class="form-control" id="Date2" type="date" ng-model="form.chequedate">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label for="Bank">Bank Name</label>
+                                    <div class="input-group">
+                                        <input class="form-control" id="Bank" type="text" placeholder="Enter Bank Name" ng-model="form.bankname">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                @*<button type="submit" class="btn btn-danger btn-lg waves-effect waves-light" ng-click="edit()">Edit</button>*@
+                                @*<button type="submit" class="btn btn-success btn-lg waves-effect waves-light m-r-10" ng-click="addReceipt()">Add</button>*@
+                                <input type="submit" class="btn btn-success btn-lg waves-effect waves-light m-r-10" ng-click="edit()" value="Add" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

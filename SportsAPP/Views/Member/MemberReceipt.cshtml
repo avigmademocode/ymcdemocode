@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "MemberReceipt";
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+}
+<script src="~/AngularJS/AddMember/jsAddMemberController.js"></script>
+
+<div ng-controller="AddMemberController">
+    <div class="row page-tilte align-items-center">
+        <div class="col-sm-6 col-sm offset-3">
+            <h1 class="weight-300 h3 title">Add Member Receipt</h1>
+
+        </div>
+    </div>
+    <div class="col-md-6 col-md offset-3">
+        <div class="card mb-4">
+            <div class="card-body">
+
+                <form name="formx"  ng-submit="submitForm()">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputreceiptno">Receipt No</label>
+                            <input type="text" class="form-control" id="txtreceiptno" placeholder="Receipt No" required ng-model="form.ReceiptNo" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputamount">Amount</label>
+                            <input type="number" placeholder="00.0" class="form-control" id="txtamount" required ng-model="form.amount" />
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="inputpaidby">Paid By</label>
+                            <select id="txtpaidby" class="form-control" ng-model="form.paidby">
+                                <option value="">Select Type...</option>
+                                <option value="1">Cash</option>
+                                <option value="2">Cheque</option>
+                                <option value="3">DD</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputchequeno">cheque Number</label>
+                            <input type="text" class="form-control" id="txtchequeno" placeholder="Cheque No" required ng-model="form.chequeno" />
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="inputbankname">Bank Name</label>
+                            <input type="text" class="form-control" id="txtbankname" placeholder="Bank Name" required ng-model="form.bankname" />
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="inputpayDate"> Date</label>
+                            <input type="date" class="form-control" ng-model="form.paydate" />
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputstartdate">Start Date</label>
+                                <input type="date" class="form-control" ng-model="form.startdate" />
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputExpiryDate">Expiry Date</label>
+                                <input type="date" class="form-control" ng-model="form.expirydate" />
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+
+
+             
+                    @*<button type="button" class="btn btn-secondary">Close</button>*@
+                    <button type="submit" class="btn btn-primary" ng-click="AddMemberReceipt()">Generate Receipt</button>
+                
+                </div>
+             </div>
+       </div>
+ </div>

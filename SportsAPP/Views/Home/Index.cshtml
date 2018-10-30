@@ -1,0 +1,88 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+}
+<!-- ChartJS -->
+<script src="/assets/js/chartjs/Chart.js"></script>
+    <script src="/assets/js/chartjs/utils.js"></script>
+<script src="/assets/js/pages/dashboard.script.js"></script>
+    <script src="~/assets/js/pages/charts.js"></script>
+
+
+<div class="content-wrapper">
+    <div class="row page-tilte align-items-center">
+        <div class="col-md-auto">
+            <a href="#" class="mt-3 d-md-none float-right toggle-controls"><span class="material-icons">keyboard_arrow_down</span></a>
+            <h1 class="weight-300 h3 title">Activity Charts</h1>
+            <p class="text-muted m-0 desc">Show huge data in charts</p>
+        </div>
+        <div class="col controls-wrapper mt-3 mt-md-0 d-none d-md-block ">
+            <div class="controls d-flex justify-content-center justify-content-md-end">
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="content">
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card mb-4">
+                    <div class="card-header">Sports Chart</div>
+                    <div class="card-body">
+                        <canvas id="chart-area" height="150"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card mb-4">
+                    <div class="card-header">Users Chart</div>
+                    <div class="card-body">
+                        <canvas id="canvas"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row" style="visibility:hidden">
+            <div class="col-lg-6">
+                <div class="card mb-4">
+                    <div class="card-header">Bar Chart</div>
+                    <div class="card-body">
+                        <canvas id="canvas"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card mb-4">
+                    <div class="card-header">Horizontal Bar Chart</div>
+                    <div class="card-body">
+                        <canvas id="canvas1"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="visibility:hidden">
+            <div class="col-lg-6">
+                <div class="card mb-4">
+                    <div class="card-header">Line Chart</div>
+                    <div class="card-body">
+                        <canvas id="canvas2"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card mb-4">
+                    <div class="card-header">Horizontal Bar Chart</div>
+                    <div class="card-body">
+                        <canvas id="chart-0" height="266"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

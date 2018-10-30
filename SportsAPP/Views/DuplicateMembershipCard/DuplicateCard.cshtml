@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewBag.Title = "DuplicateCard";
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+}
+<script src="~/AngularJS/AddDuplicateCard/jsDuplicateCardController.js"></script>
+<script src="~/AngularJS/AjsFactory/AjsFactory.js"></script>
+
+
+<div ng-controller="DuplicateMembershipCardController">
+<div class="row page-tilte align-items-center">
+    <div class="col-sm-6 offset-3">
+        <h3 class="weight-300 h3 title">Duplicate Card</h3>
+    </div>
+</div>
+
+<div class="col-md-6 offset-3">
+    <div class="card mb-4">
+        <div class="card-body">
+
+            <form class="formx" ng-submit="SubmitForm()">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputmemberno">Member No.</label>
+                        <input type="text" class="form-control" id="txtmemberno" ng-model="form.memberno">
+                    </div>
+                    
+                    <div class="form-group col-md-6">
+                        <label for="inputmembername">Member Name</label>
+                        <input type="text" class="form-control" id="txtmembername" ng-model="form.membername" required>
+                    </div>
+                       
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputcategory">Category</label>
+                        <Select class="form-control" id="inputcategory" ng-change="getAmount(form.category)" ng-model="form.category">
+                            <option value=""> Select Category...</option>
+                            <option value="200">Full Member</option>
+                            <option value="2">Associate Member</option>
+                            <option value="3">Student Member</option>
+                            <option value="4">Youth Member</option>
+                            <option value="5">Transient Member</option>
+                        </Select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                             <label for="inputreceiptno">Receipt No.</label>
+                            <input type="text" class="form-control" id="txtreceiptno" ng-model="form.receiptno">
+                         </div>
+                   
+                        <div class="form-group col-md-6">
+                            <label for="inputdate">Date</label>
+                            <input type="date" class="form-control" id="txtdate" ng-model="form.date" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputamount">Amount</label>
+                            <input type="number" placeholder="00.0" class="form-control" id="txtnumber" ng-model="form.amount">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputpaidby"> Paid By</label>
+                            <select class="form-control" id="inputpaidby" ng-model="form.paidby">
+                                <option value="">Select Paid By</option>
+                                <option value="1">Cash</option>
+                                <option value="2">Cheque</option>
+                                <option value="3">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputchequeno">cheque Number</label>
+                            <input type="text" class="form-control" id="txtchequeno" placeholder="Cheque No" required ng-model="form.chequeno" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputpayDate">Cheque Date</label>
+                            <input type="date" class="form-control" ng-model="form.paydate" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputbankname">Bank Name</label>
+                            <input type="text" class="form-control" id="txtbankname" placeholder="Bank Name" required ng-model="form.bankname" />
+                        </div>
+                    </div>
+
+                </div>
+                <button type="submit" class="btn btn-primary"> Submit</button>
+            </form>
+            </div>
+       </div>
+    </div>
+</div>

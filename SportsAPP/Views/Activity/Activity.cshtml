@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "Activity";
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+}
+<script src="~/AngularJS/Activity/jsActivityController.js"></script>
+<script src="~/AngularJS/AjsFactory/AjsFactory.js"></script>
+
+
+<div ng-controller="ActivityController" ng-init="form.City = 3">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Add Activity</h4>
+                    <form name="form" ng-submit="addActivity()">
+                        @*<div class="form-group" >
+                                <label for="inputActivity2">Activity Id</label>
+                                <div class="input-group">
+                                    <input class="form-control" id="inputActivityid2" placeholder="Enter Activity Id" required type="text" ng-model="form.activityid" autofocus>
+                                </div>
+                            </div>*@
+                        <div class="form-group">
+                            <label for="inputActivityname2">Activity Name</label>
+                            <div class="input-group">
+                                <input class="form-control" id="inputActivityname2" placeholder="Enter Activity Name" type="text" required ng-model="form.activityname">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputamount">Amount</label>
+                            <input type="number" class="form-control" ng-model="form.amount" id="txtamount">
+                        </div>
+                        <div class="form-row">
+                            <label for="intType1">Branch :</label>
+                            <select class="form-control" required ng-model="form.Branch" ng-options="item.Pkey_Branch_id as item.Branch_name for item in BranchLst.Table">
+                                <option value="">--Select Branch-- </option>
+                            </select>
+                            @*{{form.Branch}}*@
+                            @*<input type="number" ng-model="form.Branch_name">*@
+
+
+                            <label for="Location1">City :</label>
+                            <select class="form-control" required ng-model="form.City" ng-options="item.pkey_CityId as item.CityName for item in cityLst">
+                                <option value="">--Select city-- </option>
+                            </select>
+                            @*{{form.City}}*@
+                            @*<input type="number" ng-model="form.City">*@
+
+
+                            <label for="Location1">State :</label>
+                            <select class="form-control" required ng-model="form.State" ng-options="item.pkey_state_id as item.state_name for item in stateLst">
+                                <option value="">--Select State-- </option>
+                            </select>
+                        </div>
+
+
+                        <button type="submit" class="btn btn-success waves-effect waves-light" ng-click="addActivity()">Add</button>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*{{BranchLst}}*@
+    @*{{cityLst}}*@
+</div>
+

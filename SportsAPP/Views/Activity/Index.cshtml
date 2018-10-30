@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+}
+
+<script src="~/AngularJS/Activity/jsActivityView.js"></script>
+<script src="~/AngularJS/AjsFactory/AjsFactory.js"></script>
+<div ng-controller="ViewActivityController">
+    <div class="col-md-12">
+        <h3>View Activity Details</h3>
+        <label>Search Activity Name:</label>
+        <input id='filter' class='k-textbox' />
+        <br /><br />
+        <div id="grid" class="k-content">
+        </div>
+
+    </div>
+
+    <br />
+
+
+
+</div>
+
