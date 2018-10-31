@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using SportsAPP.Repository.Lib;
 using SportsAPP.Models;
+using System.Data;
 
 namespace SportsAPP.Repository.Data
 {
@@ -27,5 +28,29 @@ namespace SportsAPP.Repository.Data
             return obj.SqlCRUD(insertProcedure, input_parameters);
         }
 
-    }
+        public List<dynamic> GetSpecial_InterestsDetailsData()
+        {
+            List<dynamic> objDynamic = new List<dynamic>();
+
+            string insertProcedure = "[Get_SpecialInterestsMaster]";
+
+            Dictionary<string, string> input_parameters = new Dictionary<string, string>();
+            DataSet ds = obj.SelectSql(insertProcedure, input_parameters);
+
+            var myEnumerable = ds.Tables[0].AsEnumerable();
+
+            List<Special_InterestsDetailsDTO> ordtl =
+               (from item in myEnumerable
+                select new Special_InterestsDetailsDTO
+                {
+
+                    pkey_special_interests_id = item.Field<Int64>("pkey_special_interests_id"),
+                    special_interests = item.Field<String>("special_interests"),
+
+                }).ToList();
+            objDynamic.Add(ordtl);
+            return objDynamic;
+        }
+
+        }
 }

@@ -98,7 +98,8 @@ namespace SportsAPP.Repository.Data
                            City = item.Field<int>("city"),
                            State = item.Field<int>("state"),
                            country = item.Field<int>("country"),
-
+                           city_name=item.Field<String>("city_name"),
+                           state_name=item.Field<String>("state_name"),
 
 
                        }).ToList();

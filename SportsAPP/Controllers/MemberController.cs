@@ -32,8 +32,13 @@ namespace SportsAPP.Controllers
             return View();
         }
 
+        public ActionResult Memberfee()
+        {
+            return View();
+        }
 
-        public JsonResult GetMemberDataId(Int64 id)
+
+        public JsonResult GetMemberDataId(MemberDetails id)
         {
             MemberDetailData memberDetailData = new MemberDetailData();
             var Response = memberDetailData.GetMemberData(id);
@@ -95,13 +100,50 @@ namespace SportsAPP.Controllers
             return new JsonResult { Data = Data, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
 
-        //public JsonResult GetMemberDatas()
-        //{
-        //    DataSet ds = new DataSet();
-        //    ds = memberDetailData.GetMember();
-        //    string Data = Newtonsoft.Json.JsonConvert.SerializeObject(ds);
-        //    return new JsonResult { Data = Data, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-        //}
+
+        public JsonResult GetSpecialInterestData()
+        {
+            Special_InterestsDetailsData special_InterestsDetails = new Special_InterestsDetailsData();
+            var Data = special_InterestsDetails.GetSpecial_InterestsDetailsData();
+            return new JsonResult { Data = Data, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
+
+
+        public JsonResult GetProQulificationDetailData()
+        {
+            ProfessionalQualificationsDetailsData Objprofessional = new ProfessionalQualificationsDetailsData();
+            var Data = Objprofessional.GetProQulificationDetail();
+            return new JsonResult { Data = Data, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
+
+        public JsonResult GetGSTPercentageDetailsData()
+        {
+            GST_PercentageDetailsData gST_PercentageDetails = new GST_PercentageDetailsData();
+            var Data = gST_PercentageDetails.GetGSTPercentageDetails();
+            return new JsonResult { Data = Data, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
+
+        public JsonResult AddMemberFeeDetail(MemberfeeDetailsDTO memberfeeDetailsDTO)
+        {
+            MemberfeeDetailsData memberfeeDetails = new MemberfeeDetailsData();
+            var Data = memberfeeDetails.AddMemberfeeDetail(memberfeeDetailsDTO);
+            return new JsonResult { Data = Data, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
+
+        public JsonResult GetMemberFeeDetailData()
+        {
+            MemberfeeDetailsData memberfeeDetails = new MemberfeeDetailsData();
+            var Data = memberfeeDetails.GetMemberFeeData();
+            return new JsonResult { Data = Data, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+
+        }
+        public JsonResult GetMemberDatas(MemberDetails memberDetails)
+        {
+            MemberDetailData memberDetailData = new MemberDetailData();
+            //var Data = memberDetailData.GetMemberDetailData();
+            var Data = memberDetailData.GetMemberData(memberDetails);
+            return new JsonResult { Data = Data, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
         //public JsonResult GetMemberReceiptData(MemberReceiptDetailsDTO memberReceiptDetailsDTO)
         //{
         //    MemberReceiptDetailsData memberReceiptDetailsData = new MemberReceiptDetailsData();

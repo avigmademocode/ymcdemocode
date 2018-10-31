@@ -1,14 +1,10 @@
-﻿HomeApp.controller('ViewMemberController', ['$scope', '$window', '$location', 'AjsFactory', function ($scope, $window, $location, AjsFactory) {
+﻿HomeApp.controller('UserController', ['$scope', '$window', '$location', 'AjsFactory', function ($scope, $window, $location, AjsFactory) {
 
-    //kendo grid data
-
-
-    //kendo grid data
 
     function BindGrid(dataItem) {
         try {
             debugger
-            var JsonData = dataItem.Table
+            var people = dataItem[0];
             $('#grid').kendoGrid({
                 scrollable: true,
                 sortable: true,
@@ -25,19 +21,16 @@
                 ///ViewRequest?{{ord.OrderId}}
                 , dataSource:
                     {
-                        data: JsonData,
+                        data: people,
 
                         schema: {
                             model: {
                                 fields: {
-                                    first_name: { type: "string" },
-                                    last_name: { type: "string" },
-                                    mobile_number: { type: "number" },
-                                    email_id: { type: "string" },
-                                    categoryname: {type:"string"},
-                                   // category: { type: "number" },
-                                    receiptNo: { type: "number" },
-                                    
+                                    FirstName: { type: "string" },
+                                    LastName: { type: "string" },
+                                    MobileNumber: { type: "number" },
+                                    EmailId: { type: "string" },
+                                   
 
                                 }
                             }
@@ -45,14 +38,12 @@
                     }
                 , columns:
                     [
-                        { field: "first_name", title: "First Name", template: "<a href='/Member/Add/Index?${pkey_member_id}'>${first_name}</a>" }
-                        , { field: "last_name", title: "Last Name" }
-                        , { field: "mobile_number", title: "Mobile Number" }
-                        , { field: "email_id", title: "Email" }
-                        , { field: "categoryname", title: "Category"}
-                       // , { field: "category", title: "Category" }
-                        , { field: "receiptNo", title: "ReeceiptNo." }
- 
+                        { field: "FirstName", title: "First Name", template: "<a href='/User/Index?${UserId}'>${FirstName}</a>" }
+                        , { field: "LastName", title: "Last Name" }
+                        , { field: "MobileNumber", title: "Mobile Number" }
+                        , { field: "EmailId", title: "Email" }
+                       
+
                     ]
 
 
@@ -62,17 +53,43 @@
 
         }
 
-    }
+    };
 
 
-    $scope.GetMemberData = function () {
+    //$scope.getUser = function () {
+    //    var data = {
+    //        UserId: 0,
+    //        Type: 1
+
+
+    //    };
+    //    AjsFactory.GetUserData(data)
+    //        .then(function (response) {
+
+    //            debugger;
+    //            if (response.data.length != 0) {
+    //                $scope.userLst = response.data;
+    //            }
+    //        });
+
+    //};
+
+    $scope.GetUserData = function () {
         debugger;
-        AjsFactory.getMemberDetailsData()
+
+        var data = {
+            UserId: 0,
+            Type: 1
+
+
+        };
+        AjsFactory.getUserData(data)
             .then(function (response) {
-                debugger
+
                 if (response.data.length != 0) {
                     debugger;
-                    dataItem = JSON.parse(response.data);
+                     //dataItem = JSON.parse(response.data[0]);
+                    dataItem = response.data;
                     try {
 
                         BindGrid(dataItem);
@@ -90,7 +107,6 @@
             });
 
     }
-
 
 
     function isNumeric(n) {
@@ -147,8 +163,7 @@
         });
         grid.dataSource.filter(filter);
     });
-    $scope.GetMemberData();
 
 
-
+    $scope.GetUserData();
 }]);

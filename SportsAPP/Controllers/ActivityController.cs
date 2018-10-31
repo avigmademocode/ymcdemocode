@@ -72,5 +72,13 @@ namespace SportsAPP.Controllers
             var Data = stateDetailsData.GetStateData();
             return new JsonResult { Data = Data, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
+
+
+        public JsonResult GetActivitydetailData(ActivityDetailsUI activityDetailsUI)
+        {
+            ActivityDetailsData activityDetailsData = new ActivityDetailsData();
+            var Data =activityDetailsData.GetActivityData(activityDetailsUI);
+            return new JsonResult { Data = Data, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
     }
 }

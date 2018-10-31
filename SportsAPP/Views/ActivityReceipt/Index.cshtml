@@ -13,21 +13,21 @@
             <div class="card-body">
                 <h4 class="card-title">Create Activity Receipt</h4>
                 <div class="container">
-                    <form class="form " ng-submit="addReceipt()">
+                    <form class="formx" ng-submit="addReceipt()">
                         <div class="row">
                             @*<div class="col-lg-4 ">
-                                    <div class="form-group">
-                                        <label for="ActivityId2">Acticity Id</label>
-                                        <div class="input-group">
-                                            <input class="form-control" id="inputActivityid2" placeholder="" type="text">
-                                        </div>
-                                    </div>
-                                </div>*@
+                    <div class="form-group">
+                        <label for="ActivityId2">Acticity Id</label>
+                        <div class="input-group">
+                            <input class="form-control" id="inputActivityid2" placeholder="" type="text">
+                        </div>
+                    </div>
+                </div>*@
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label for="Recipt2">Receipt No.</label>
                                     <div class="input-group">
-                                        <input class="form-control" id="Receipt" type="text" ng-model="form.receiptno" required/>
+                                        <input class="form-control" id="Receipt" type="text" ng-model="form.receiptno" required />
                                     </div>
                                 </div>
                             </div>
@@ -45,8 +45,8 @@
                             <div class="col-lg-6">
                                 <!-- Button trigger modal -->
                                 @*<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                                        Launch demo modal
-                                    </button>*@
+                        Launch demo modal
+                    </button>*@
 
                                 <!-- Modal -->
                                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -71,13 +71,15 @@
                             </div>
                         </div>
                         @*<div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label for="inputcheckbox1">Register Member</label>
-                                    <input type="checkbox" class="form-control" id="inputcheckbox1" ng-model="form.register">
-                                                                 </div>
-                            </div>*@
-                        </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label for="inputcheckbox1">Register Member</label>
+                    <input type="checkbox" class="form-control" id="inputcheckbox1" ng-model="form.register">
+                                                 </div>
+            </div>*@
+
+
+
                         <div class="row">
                             <div class="col-lg-4 ">
                                 <div class="form-group">
@@ -115,7 +117,8 @@
                                 <div class="form-group">
                                     <label for="Date2">Valid From</label>
                                     <div class="input-group">
-                                        <input class="form-control" id="Date2" type="date" ng-model="form.validfrom">
+                                        @*<input class="form-control" id="Date2" type="date" ng-model="form.validfrom">*@
+                                        <input class="form-control" id="Date2" type="date" ng-model="form.validfrom" ng-change='checkErr(form.validfrom,form.validupto)' />
                                     </div>
                                 </div>
                             </div>
@@ -123,7 +126,8 @@
                                 <div class="form-group">
                                     <label for="Date2">Valid Up To</label>
                                     <div class="input-group">
-                                        <input class="form-control" id="Date2" type="date" ng-model="form.validupto">
+                                        @*<input class="form-control" id="Date2" type="date" ng-model="form.validupto">*@
+                                        <input class="form-control" id="Date2" type="date" ng-model="form.validupto" ng-change='checkErr(form.startDate,form.endDate)' />
                                     </div>
                                 </div>
                             </div>
@@ -218,6 +222,6 @@
                     </form>
                 </div>
             </div>
+            </div>
         </div>
     </div>
-</div>

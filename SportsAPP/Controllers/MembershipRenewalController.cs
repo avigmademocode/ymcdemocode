@@ -25,5 +25,13 @@ namespace SportsAPP.Controllers
             return new JsonResult { Data = Data, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
 
         }
+
+        public JsonResult GetMemberDataById()
+        {
+            MemberDetailData memberDetailData = new MemberDetailData();
+            var Data = memberDetailData.GetMemberDetailData();
+            return new JsonResult { Data = Data, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+
+        }
     }
 }

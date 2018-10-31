@@ -1,8 +1,23 @@
 ﻿HomeApp.controller('ActivityController', ['$scope', '$window', '$location', 'AjsFactory', function ($scope, $window, $location, AjsFactory) {
 
+    $scope.ActivityId = $scope.ActivityId ? $scope.ActivityId.split('?')[1] : window.location.search.slice(1);
+    //alert($scope.ActivityId);
+
+    //if ($scope.ActivityId != '') {
+    //    $scope.getActivityData();
+    //}
 
     $scope.addActivity = function () {
         debugger;
+
+        var Type;
+        if ($scope.ActivityId == 0) {
+            Type = 1;
+
+        }
+        else {
+            Type = 2;
+        }
 
         var Data = {
 
@@ -13,14 +28,15 @@
             city_id: $scope.form.City,
             state_id: $scope.form.State,
 
-            Type: 1,
+            Pkey_activity_id: $scope.ActivityId,
+            Type: Type,
             UserID: 0,
-            is_delete: 0
+            is_delete: 1
         };
-        alert(JSON.stringify(Data));
+       // alert(JSON.stringify(Data));
         AjsFactory.AddActivityDetail(Data)
             .then(function (response) {
-                 alert(response.data.length);
+                                      
                 if (response.data.length != 0) {
                     debugger;
                     alert('Request has been saved successfully.');
@@ -32,11 +48,11 @@
         //debugger;
 
         AjsFactory.getBranchDetailsData()
-            .then(function (resopnse) {
-                debugger;
-                if (resopnse.data[0].length != 0) {
-                     debugger;
-                    $scope.BranchLst = JSON.parse(resopnse.data);  //resopnse.data;
+            .then(function (response) {
+               // debugger;
+                if (response.data[0].length != 0) {
+                    // debugger;
+                    $scope.BranchLst = JSON.parse(response.data);  //response.data;
 
                 }
 
@@ -49,11 +65,11 @@
         //  debugger;
 
         AjsFactory.getCityDetailsdata()
-            .then(function (resopnse) {
+            .then(function (response) {
                 // debugger;
-                if (resopnse.data[0].length != 0) {
+                if (response.data[0].length != 0) {
                     // debugger;
-                    $scope.cityLst = resopnse.data[0];
+                    $scope.cityLst = response.data[0];
                     $scope.Test();
 
                 }
@@ -69,11 +85,11 @@
         // debugger;
 
         AjsFactory.getStateDetailsdata()
-            .then(function (resopnse) {
+            .then(function (response) {
                 // debugger;
-                if (resopnse.data[0].length != 0) {
+                if (response.data[0].length != 0) {
                     // debugger;
-                    $scope.stateLst = resopnse.data[0];
+                    $scope.stateLst = response.data[0];
 
                 }
 
@@ -89,6 +105,28 @@
         $scope.form.City = 1;
         $scope.form.State = 1;
     }
-   
 
+    $scope.getActivityData = function () {
+        debugger;
+        var Data = {
+            Pkey_activity_id: $scope.ActivityId,
+            Type: 2,
+
+        };
+        AjsFactory.getActivityDetailsdata(Data)
+            .then(function (response) {
+                debugger;
+                if (response.data[0][0].length != 0) {
+
+                    $scope.form.activityname = response.data[0][0].activity_name;
+                    $scope.form.amount = response.data[0][0].amount;
+                    $scope.form.Branch = response.data[0][0].branch_id;
+                    $scope.form.City = response.data[0][0].city_id;
+                    $scope.form.State = response.data[0][0].state_id;
+
+                }
+            });
+    };
+    
+    $scope.getActivityData();
 }]);

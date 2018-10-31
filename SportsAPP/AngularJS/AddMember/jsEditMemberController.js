@@ -2,7 +2,7 @@
 
 
     $scope.UserID = $scope.UserID ? $scope.UserID.split('?')[1] : window.location.search.slice(1);
-    //alert($scope.UserID);
+    alert($scope.UserID);
     $scope.Genderx = [
         { id: 1, name: "Male" },
         { id: 2, name: "Female" },
@@ -67,67 +67,67 @@
         var Data = {
             id: $scope.UserID
         };
+        alert(JSON.stringify(Data))
+
+        //AjsFactory.GetMemberDataID(Data)
+        //    .then(function (response) {
+        //        debugger;
+        //        if (response.data.length > 0) {
+
+        //            $scope.ReceiptNo = response.data[0][0].receiptNo;
+        //            $scope.FirstName = response.data[0][0].first_name;
+        //            $scope.LastName = response.data[0][0].last_name;
+        //            $scope.Phone = response.data[0][0].mobile_number;
+        //            $scope.Email = response.data[0][0].email_id;
+        //            $scope.dateofbirth = response.data[0][0].date_of_birth;
+        //            //$scope.form.renewal = response.data[0].;
+        //            $scope.age = response.data[0][0].age;
+        //            $scope.qualification = response.data[0][0].qualification;
+        //            $scope.religion = response.data[0][0].religion;
+        //            $scope.maritalstatus = response.data[0][0].marital_Status;
+        //            $scope.Gender = response.data[0][0].gender;
+        //            $scope.profession = response.data[0][0].profession;
+        //            $scope.category = response.data[0][0].category;
+        //            $scope.amount = response.data[0][0].amount;
+        //            $scope.paidby = response.data[0][0].paid_by;
+        //            //$scope.chequeno = response.data[0][0].cheque_no;
+        //                //$scope.form.paydate = response.data[0][0].
+        //                //$scope.form.bankname = response.data[0][0].
+        //            $scope.gstno = response.data[0][0].GST_No;
+        //            $scope.officetelno = response.data[0][0].office_tel_no;
+        //            $scope.residentialtelNo = response.data[0][0].residential_tel_no;
+        //            $scope.specialinterest = response.data[0][0].special_interest;
+        //            $scope.panno = response.data[0][0].pan_no;
+        //            $scope.BranchName = response.data[0][0].bank_name;
+        //               // $scope.form.Activity = response.data[0][0].
+        //            $scope.Address1 = response.data[0][0].PermAddress1;
+        //            $scope.Address1 = response.data[0][0].PermAddress2;
+        //            $scope.Address1 = response.data[0][0].PermAddress3;
+        //            $scope.pZip = response.data[0][0].Perm_pincode;
+        //            $scope.pCity = response.data[0][0].Perm_city;
+        //            $scope.pState = response.data[0][0].Perm_state;
+        //    //$scope.form.SameAsPermAdd_Loc,
+        //    //$scope.form.LAddress2,
+        //    //$scope.form.LAddress2,
+        //    //$scope.form.LAddress2,
+        //    //$scope.form.LZip,
+        //    //$scope.form.LCity,
+        //    //$scope.form.LState,
+        //    //$scope.form.SameAsPermAdd_Offi,
+        //    //$scope.form.Address3,
+        //    //$scope.form.Address3,
+        //    //$scope.form.Address3,
+        //    //$scope.form.Zip,
+        //    //$scope.form.City,
+        //    //$scope.form.State,
+        //    //$scope.form.correspondenceaddress,
+        //    //$scope.form.startdate,
+        //    //$scope.form.expirydate,
 
 
-        AjsFactory.GetMemberDataID(Data)
-            .then(function (response) {
-                debugger;
-                if (response.data.length > 0) {
-
-                    $scope.ReceiptNo = response.data[0][0].receiptNo;
-                    $scope.FirstName = response.data[0][0].first_name;
-                    $scope.LastName = response.data[0][0].last_name;
-                    $scope.Phone = response.data[0][0].mobile_number;
-                    $scope.Email = response.data[0][0].email_id;
-                    $scope.dateofbirth = response.data[0][0].date_of_birth;
-                    //$scope.form.renewal = response.data[0].;
-                    $scope.age = response.data[0][0].age;
-                    $scope.qualification = response.data[0][0].qualification;
-                    $scope.religion = response.data[0][0].religion;
-                    $scope.maritalstatus = response.data[0][0].marital_Status;
-                    $scope.Gender = response.data[0][0].gender;
-                    $scope.profession = response.data[0][0].profession;
-                    $scope.category = response.data[0][0].category;
-                    $scope.amount = response.data[0][0].amount;
-                    $scope.paidby = response.data[0][0].paid_by;
-                    //$scope.chequeno = response.data[0][0].cheque_no;
-                        //$scope.form.paydate = response.data[0][0].
-                        //$scope.form.bankname = response.data[0][0].
-                    $scope.gstno = response.data[0][0].GST_No;
-                    $scope.officetelno = response.data[0][0].office_tel_no;
-                    $scope.residentialtelNo = response.data[0][0].residential_tel_no;
-                    $scope.specialinterest = response.data[0][0].special_interest;
-                    $scope.panno = response.data[0][0].pan_no;
-                    $scope.BranchName = response.data[0][0].bank_name;
-                       // $scope.form.Activity = response.data[0][0].
-                    $scope.Address1 = response.data[0][0].PermAddress1;
-                    $scope.Address1 = response.data[0][0].PermAddress2;
-                    $scope.Address1 = response.data[0][0].PermAddress3;
-                    $scope.pZip = response.data[0][0].Perm_pincode;
-                    $scope.pCity = response.data[0][0].Perm_city;
-                    $scope.pState = response.data[0][0].Perm_state;
-            //$scope.form.SameAsPermAdd_Loc,
-            //$scope.form.LAddress2,
-            //$scope.form.LAddress2,
-            //$scope.form.LAddress2,
-            //$scope.form.LZip,
-            //$scope.form.LCity,
-            //$scope.form.LState,
-            //$scope.form.SameAsPermAdd_Offi,
-            //$scope.form.Address3,
-            //$scope.form.Address3,
-            //$scope.form.Address3,
-            //$scope.form.Zip,
-            //$scope.form.City,
-            //$scope.form.State,
-            //$scope.form.correspondenceaddress,
-            //$scope.form.startdate,
-            //$scope.form.expirydate,
-
-
-                    debugger;
-                }
-            });
+        //            debugger;
+        //        }
+        //    });
 
 
 

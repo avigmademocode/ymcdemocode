@@ -26,7 +26,7 @@
 
 
     $scope.submitForm = function () {
-        debugger;
+        //debugger;
         var bool = true;
         bool = EmailValidation($scope.form.BranchEmail);
       
@@ -46,7 +46,7 @@
             Zip: $scope.form.Zip,
             UserID: 0, //using local stoarge 
             Type: 1,
-            is_delete:0
+            is_delete:1
         }
         alert(JSON.stringify(Data));
         AjsFactory.AddNewBranch(Data)
@@ -59,13 +59,13 @@
     };
 
     $scope.GetcityData = function () {
-        debugger;
+        //debugger;
 
         AjsFactory.getCityData()
             .then(function (response) {
-                debugger;
+               // debugger;
                 if (response.data[0].length != 0) {
-                    debugger;
+                 //   debugger;
                     $scope.cityLst = response.data[0];
                 }
             });
@@ -75,13 +75,13 @@
     $scope.GetcityData();
 
     $scope.GetStateData = function () {
-        debugger;
+        //debugger;
 
         AjsFactory.getStateData()
             .then(function (response) {
-                debugger;
+                //debugger;
                 if (response.data[0].length != 0) {
-                    debugger;
+                  //  debugger;
                     $scope.stateLst = response.data[0];
                 }
 
@@ -96,6 +96,7 @@
             return true;
         }
         else {
+            alert("Invalid Email Id");
             return false;
         }
     }

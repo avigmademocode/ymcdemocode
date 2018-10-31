@@ -25,7 +25,7 @@
             
             Type: 1,
             UserID: 0,
-            is_delete: 0
+            is_delete: 1
         }
         alert(JSON.stringify(Data));
         AjsFactory.AddActivitydata(Data)
@@ -37,46 +37,63 @@
                 }
             });
     };
-    $scope.mydata = [];
-    $scope.GetMemberData = function () {
-        //debugger;
-        AjsFactory.getMemberDetailsData()
+    $scope.GetMemberIDData = function () {
+        debugger;
+
+
+        // alert(JSON.stringify());
+        AjsFactory.getMemeberIDData()
             .then(function (response) {
-
-                if (response.data.length != 0) {
-                    //debugger;
-                    dataItem = JSON.parse(response.data);
-                    $scope.FirsrName = dataItem.Table
-
-                    angular.forEach($scope.FirsrName, function (item) {
-                        $scope.mydata.push(item.first_name);
-                    });
-
-                } else {
-                    alert('Record Not Found!');
+                debugger;
+                if (response.data[0].length != 0) {
+                    debugger;
+                    $scope.memberLst = response.data[0];
                 }
-
             });
+    };
 
-    }
-    $scope.GetMemberData();
+    $scope.GetMemberIDData();
+
+    //$scope.mydata = [];
+    //$scope.GetMemberData = function () {
+    //    debugger;
+    //    AjsFactory.getMemberDetailsData()
+    //        .then(function (response) {
+
+    //            if (response.data.length != 0) {
+    //                //debugger;
+    //                dataItem = JSON.parse(response.data);
+    //                $scope.FirsrName = dataItem.Table
+
+    //                angular.forEach($scope.FirsrName, function (item) {
+    //                    $scope.mydata.push(item.first_name);
+    //                });
+
+    //            } else {
+    //                alert('Record Not Found!');
+    //            }
+
+    //        });
+
+    //}
+    //$scope.GetMemberData();
 
 
 
-    $scope.complete = function (string) {
+    //$scope.complete = function (string) {
 
-        var output = [];
-        angular.forEach($scope.mydata, function (namefill) {
-            if (namefill.toLowerCase().indexOf(string.toLowerCase()) >= 0) {
-                output.push(namefill);
-            }
-        });
-        $scope.filterName = output;
-    }
-    $scope.fillTextbox = function (string) {
-        $scope.namefill = string;
-        $scope.filterName = null;
-    }
+    //    var output = [];
+    //    angular.forEach($scope.mydata, function (namefill) {
+    //        if (namefill.toLowerCase().indexOf(string.toLowerCase()) >= 0) {
+    //            output.push(namefill);
+    //        }
+    //    });
+    //    $scope.filterName = output;
+    //}
+    //$scope.fillTextbox = function (string) {
+    //    $scope.namefill = string;
+    //    $scope.filterName = null;
+    //}
 
 
 

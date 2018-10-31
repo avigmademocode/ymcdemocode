@@ -39,14 +39,13 @@ namespace SportsAPP.Repository.Data
         {
             List<dynamic> objDynamic = new List<dynamic>();
 
-            string insertProcedure = "[Get_BranchMasterByID]";
+            string insertProcedure = "[Get_ActivityMasterByID]";
 
             Dictionary<string, string> input_parameters = new Dictionary<string, string>();
 
-            input_parameters.Add("@Pkey_activity_id", 1 + "#bigint#" + activityData.Pkey_activity_id);
+            input_parameters.Add("@activity_id", 1 + "#bigint#" + activityData.Pkey_activity_id);
 
-
-
+            
             DataSet ds = obj.SelectSql(insertProcedure, input_parameters);
 
             var myEnumerable = ds.Tables[0].AsEnumerable();
@@ -55,11 +54,16 @@ namespace SportsAPP.Repository.Data
                (from item in myEnumerable
                 select new ActivityDetailsUI
                 {
+                    Pkey_activity_id=item.Field<Int64>("Pkey_activity_id"),
+                    amount=item.Field<decimal>("amount"),
                     activity_name=item.Field<String>("activity_name"),
-                    branch_id=item.Field<Int64>("branch_id"),
+                    branch_id = item.Field<Int64>("branch_id"),
                     city_id=item.Field<Int64>("city_id"),
                     state_id =item.Field<Int64>("city_id"),
-                    
+                    //city_name=item.Field<String>("city_name"),
+                    //state_name=item.Field<String>("state_name"),
+                    //Branch_name=item.Field<String>("Branch_name"),
+
 
                 }).ToList();
             objDynamic.Add(ordtl);

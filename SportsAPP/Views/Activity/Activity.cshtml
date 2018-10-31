@@ -23,27 +23,27 @@
                         <div class="form-group">
                             <label for="inputActivityname2">Activity Name</label>
                             <div class="input-group">
-                                <input class="form-control" id="inputActivityname2" placeholder="Enter Activity Name" type="text" required ng-model="form.activityname">
+                                <input class="form-control"  placeholder="Enter Activity Name" type="text" required ng-model="form.activityname">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputamount">Amount</label>
-                            <input type="number" class="form-control" ng-model="form.amount" id="txtamount">
+                            <input type="number" class="form-control" ng-model="form.amount" >
                         </div>
                         <div class="form-row">
                             <label for="intType1">Branch :</label>
                             <select class="form-control" required ng-model="form.Branch" ng-options="item.Pkey_Branch_id as item.Branch_name for item in BranchLst.Table">
                                 <option value="">--Select Branch-- </option>
                             </select>
-                            @*{{form.Branch}}*@
-                            @*<input type="number" ng-model="form.Branch_name">*@
+                      
+                        
 
 
                             <label for="Location1">City :</label>
                             <select class="form-control" required ng-model="form.City" ng-options="item.pkey_CityId as item.CityName for item in cityLst">
                                 <option value="">--Select city-- </option>
                             </select>
-                            @*{{form.City}}*@
+                          
                             @*<input type="number" ng-model="form.City">*@
 
 
@@ -54,7 +54,7 @@
                         </div>
 
 
-                        <button type="submit" class="btn btn-success waves-effect waves-light" ng-click="addActivity()">Add</button>
+                        <button type="submit" class="btn btn-success waves-effect waves-light">Add</button>
 
 
                     </form>
@@ -62,7 +62,6 @@
             </div>
         </div>
     </div>
-    @*{{BranchLst}}*@
-    @*{{cityLst}}*@
+
 </div>
 

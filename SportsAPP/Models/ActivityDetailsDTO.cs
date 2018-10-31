@@ -17,6 +17,10 @@ namespace SportsAPP.Models
         public Int64 city_id { get; set; }
        public  Int64 state_id { get; set; }
 
+        public String city_name { get; set; }
+        public String state_name { get; set; }
+        public String Branch_name { get; set; }
+
          public Int64 UserID { get; set; }
         public int IsDeleted { get; set; }
 

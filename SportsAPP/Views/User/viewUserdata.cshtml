@@ -1,25 +1,21 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "viewUserdata";
     Layout = "~/Views/Shared/_AppLayout.cshtml";
 }
-
-<script src="~/AngularJS/Activity/jsActivityView.js"></script>
+<script src="~/AngularJS/AddUser/jsViewUserController.js"></script>
 <script src="~/AngularJS/AjsFactory/AjsFactory.js"></script>
 
 
-<div ng-controller="ViewActivityController">
+<div ng-controller="UserController">
     <div class="col-md-12">
-        <h3>View Activity Details</h3>
-        <label>Search Activity Name:</label>
+        <h3>User Details</h3>
+        <label>Search User Name:</label>
+        
         <input id='filter' class='k-textbox' />
         <br /><br />
+
         <div id="grid" class="k-content">
         </div>
-
     </div>
-
-    <br />
-
-</div>
-
+  </div>

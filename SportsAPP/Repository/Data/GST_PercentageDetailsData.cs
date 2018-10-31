@@ -30,5 +30,32 @@ namespace SportsAPP.Repository.Data
 
             return obj.SqlCRUD(insertProcedure, input_parameters);
         }
+
+        public List<dynamic> GetGSTPercentageDetails()
+        {
+            List<dynamic> objDynamic = new List<dynamic>();
+
+            string insertProcedure = "[Get_GST_Percentage_Master]";
+
+            Dictionary<string, string> input_parameters = new Dictionary<string, string>();
+
+            DataSet ds = obj.SelectSql(insertProcedure, input_parameters);
+
+            var myEnumerable = ds.Tables[0].AsEnumerable();
+
+            List<GST_PercentageDetailsDTO> ordtl =
+               (from item in myEnumerable
+                select new GST_PercentageDetailsDTO
+                {
+                    pkey_GSTPercent_id=item.Field<Int64>("pkey_GSTPercent_id"),
+                    GST_No=item.Field<String>("GST_No"),
+                    GST_Percentage=item.Field<int>("GST_Percentage"),
+
+                   
+                }).ToList();
+            objDynamic.Add(ordtl);
+            return objDynamic;
+        }
+
         }
     }

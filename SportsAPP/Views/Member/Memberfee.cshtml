@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "Memberfee";
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+}
+<script src="~/AngularJS/AddMemberFee/jsMemberFeeController.js"></script>
+<script src="~/AngularJS/AjsFactory/AjsFactory.js"></script>
+
+
+<div ng-controller="MemberController">
+<div class="row page-tilte align-items-center">
+    <div class="col-sm-6 col-md-offset-3">
+        <h2 class="weight-300 h3 title">Member Fee</h2>
+
+    </div>
+</div>
+<div class="col-md-6 col-md-offset-2">
+    <div class="card mb-4">
+        <div class="card-body">
+            <form class="formx" ng-submit="submitForm()">
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputcategory">Category</label>
+                        <select id="inputcategory" class="form-control" ng-model="form.category">
+                            <option value="">Select Category</option>
+                            <option value="1">Full Member</option>
+                            <option value="2">Associate Member</option>
+                            <option value="3">Student Member</option>
+                            <option value="4">Youth Member</option>
+                            <option value="5">Transient Member</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputentrancefee"> Enter Entrance Fee</label>
+                        <input type="number" class="form-control" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.01" ng-model="form.entranceFee" id="txtentrancefee" required ng-model-options="{updateOn:'blur'}" ng-change="add(form.entranceFee,form.infrastructurefee,form.admissionfee)">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputentrancefee"> Enter Infrastructure Fee</label>
+                        <input type="number" class="form-control" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.01" ng-model="form.infrastructurefee" id="txtinfrastructure" required ng-model-options="{updateOn:'blur'}" ng-change="add(form.entranceFee,form.infrastructurefee,form.admissionfee)">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputentrancefee"> Enter Admission Fee</label>
+                        <input type="number" class="form-control" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.01" ng-model="form.admissionfee" id="txtadmissionfee" required ng-model-options="{updateOn:'blur'}" ng-change="add(form.entranceFee,form.infrastructurefee,form.admissionfee)">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputentrancefee"> Total</label>
+                        <input type="number" class="form-control" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.01" ng-model="form.total" id="txtadmissionfee" required  >
+                        
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" >Submit</button>
+             
+            </form>
+           
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <th>Sr No.</th>
+                    <th>Category</th>
+                    <th>Total</th>
+                </tr>
+                <tr ng-repeat="item in categoryLst">
+                    <td>{{$index+1}}</td>
+                    <td>{{item.categoryId}}</td>
+                    <td>{{item.total}}</td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+    @*{{categoryLst}}*@
+</div>
+</div>

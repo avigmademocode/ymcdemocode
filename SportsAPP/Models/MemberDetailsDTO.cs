@@ -14,6 +14,7 @@ namespace SportsAPP.Models
         public string gender { get; set; }
         public string Email { get; set; }
         public int Phone { get; set; }
+        
         public string BranchName { get; set; }
         public string Address1 { get; set; }
         public string Address2 { get; set; }
@@ -33,7 +34,7 @@ namespace SportsAPP.Models
         public Int64 pkey_member_id { get; set; }
         public String exist_memberId { get; set; }
         public Int64 receiptNo { get; set; }
-        //public int BranchId { get; set; }
+        public Int64 BranchId { get; set; }
         public string first_name { get; set; }
         public string last_name { get; set; }
         public Int64 mobile_number { get; set; }
@@ -42,7 +43,7 @@ namespace SportsAPP.Models
         public Int64 residential_tel_no { get; set; }
         public String special_interest { get; set; }
         public String pan_no { get; set; }
-        public DateTime date_of_birth { get; set; }
+        public DateTime? date_of_birth { get; set; }
         public int renewal { get; set; }
         public int age { get; set; }
         public int qualification { get; set; }
@@ -59,7 +60,7 @@ namespace SportsAPP.Models
         public decimal amount { get; set; }
         public int paid_by { get; set; }
         public Int64 cheque_no { get; set; }
-        public DateTime cheque_date { get; set; }
+        public DateTime? cheque_date { get; set; }
         public String bank_name { get; set; }
 
         public String image_name { get; set; }
@@ -94,10 +95,10 @@ namespace SportsAPP.Models
         public int Off_city { get; set; }
         public int Off_state { get; set; }
         public int Off_country { get; set; }
-        public Boolean CorresAddr { get; set; }
+        public int CorresAddr { get; set; }
 
-        public DateTime StartDate { get; set; }
-        public DateTime ExpiryDate { get; set; }
+        public DateTime? StartDate { get; set; }
+        public DateTime? ExpiryDate { get; set; }
         public Boolean is_blacklist_member { get; set; }
         public int Type { get; set; }
         public Int64 UserID { get; set; }

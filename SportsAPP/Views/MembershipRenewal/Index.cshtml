@@ -9,7 +9,7 @@
 
 
 
-<div ng-controller="MembershipRenewalController">
+<div ng-controller="MembershipRenewalController" >
     <div class="row page-tilte align-items-center">
         <div class="col-sm-6 col-sm-offset-3">
             <h1 class="weight-300 h3 title"> Renewal of Membership</h1>
@@ -23,16 +23,16 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="MemberName">Member Name</label>
+                            <select class="form-control" id="txtmembername" ng-model="form.memberId">
+                                <option ng-repeat="member in memberLst" value={{member.pkey_member_id}}>{{member.first_name}}</option>
+                            </select>
                             @*<input type="text" class="form-control"  ng-model="form.membername" required />*@
-                            <input type="text" id="MemberName" ng-model="namefill" ng-keyup="complete(namefill)" class="form-control" />
-                            <ul class="list-group">
-                                <li class="list-group-item" ng-repeat="namedata in filterName" ng-click="fillTextbox(namedata)">{{namedata}}</li>
-                            </ul>
+                            @*<input type="text" id="MemberName" ng-model="namefill" ng-keyup="complete(namefill)" class="form-control" />
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="namedata in filterName" ng-click="fillTextbox(namedata)">{{namedata}}</li>
+        </ul>*@
                         </div>
-                        @*<div class="form-group col-md-6">
-                                <label for="serviceTax">Service Tax Y/N</label>
-                                <input type="checkbox" class="form-control" id="chkboxyes" ng-model="form.servicestaxyes" required />
-                            </div>*@
+                     
                         <div class="form-group col-md-6">
                             <label for="serviceTax">Service Tax Y/N</label>
                             <select id="txttaxvalue" class="form-control" ng-model="form.servicestaxyes" required>

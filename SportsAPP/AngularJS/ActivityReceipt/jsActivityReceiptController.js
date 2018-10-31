@@ -1,8 +1,39 @@
-﻿HomeApp.controller('ActivityReceiptController', ['$scope', '$window', '$location', 'AjsFactory', function ($scope, $window, $location, AjsFactory) {
+﻿HomeApp.controller('ActivityReceiptController', ['$scope', "$filter", '$window', '$location', 'AjsFactory', function ($scope, $filter, $window, $location, AjsFactory) {
+
+    $scope.checkErr = function (validfrom, validupto) {
+        var curDate = new Date();
+        if (new Date(validfrom) > new Date(validupto)) {
+            alert("End Date should be greater than start date");
+            $scope.form.validfrom = "";
+            $scope.form.validupto = "";
+            return false;
+        }
+        if (new Date(validfrom) < curDate) {
+            alert("Invalid Date");
+            
+            $scope.form.validfrom = "";
+            $scope.form.validupto = "";
+            return false;
+        }
+    };
 
 
 
     $scope.addReceipt = function () {
+
+       
+        var sdate = $filter('date')(new Date($scope.form.validfrom), 'dd/MM/yyyy');
+        var validfrom = sdate.split("/").reverse().join("-");
+
+        
+        var edate = $filter('date')(new Date($scope.form.validupto), 'dd/MM/yyyy');
+        var validupto = edate.split("/").reverse().join("-");     //for date conversion
+
+        var date2 = new Date($scope.form.validupto);       //for date difference
+        var date1 = new Date($scope.form.validfrom);
+        var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+        var NoOfDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
         debugger;
         var data = {
 
@@ -24,7 +55,7 @@
 
             Type: 1,
             UserID: 0,
-            is_delete: 0,
+            is_delete: 1,
 
         }
 
@@ -63,10 +94,10 @@
         //debugger;
 
         AjsFactory.getActivityDetailsData()
-            .then(function (resopnse) {
-                if (reponse.data.length != 0) {
+            .then(function (response){
+                if (response.data.length != 0) {
                     debugger;
-                    $scope.ActivityLst = reponse.data[0];
+                    $scope.ActivityLst = response.data[0];
 
                 }
             });

@@ -31,8 +31,8 @@
                                     address1: { type: "string" },
                                     address3: { type: "string" },
                                     pincode: { type: "string" },
-                                    city: { type: "string" },
-                                    state: { type: "string" },
+                                    city_name: { type: "string" },
+                                    state_name: { type: "string" },
 
                                 }
                             }
@@ -40,12 +40,12 @@
                     }
                 , columns:
                     [
-                        { field: "Branch_name", title: "Branch Name", template: "<a href=''>${Branch_name}</a>" }
+                        { field: "Branch_name", title: "Branch Name", template: "<a href='/Branch/Add/Index?${Pkey_Branch_id}'>${Branch_name}</a>"}
                         , { field: "address1", title: "Address" }
                         , { field: "address3", title: "Email" }
                         , { field: "pincode", title: "Zip" }
-                        , { field: "city", title: "City" }
-                        , { field: "state", title: "State" }
+                        , { field: "city_name", title: "City Name" }
+                        , { field: "state_name", title: "State Name" }
                     ]
 
 

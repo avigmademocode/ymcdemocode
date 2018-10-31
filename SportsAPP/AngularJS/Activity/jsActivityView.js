@@ -4,7 +4,7 @@
 
     function BindGrid(dataItem) {
         try {
-            //debugger
+            debugger
             var people = dataItem.Table
             $('#grid').kendoGrid({
                 scrollable: true,
@@ -17,9 +17,7 @@
                     pageSize: 5,
                     pageSizes: [5, 10, 20, 500]
                 }
-                // selectable: "row",//""multiple row"",
-                // filterable: true
-                ///ViewRequest?{{ord.OrderId}}
+             
                 , dataSource:
                     {
                         data: people,
@@ -28,19 +26,21 @@
                             model: {
                                 fields: {
                                     activity_name: { type: "string" },
-                                    branch_name: { type: "string" },
+                                    Branch_name: { type: "string" },
                                     city_name: { type: "string" },
                                     state_name: { type: "string" },
+                                   
                                 }
                             }
                         }
                     }
                 , columns:
                     [
-                        { field: "activity_name", title: "Activity", template: "<a href=''>${activity_name}</a>" }
-                        , { field: "branch_name", title: "Branch Name" }
+                        { field: "activity_name", title: "Activity", template: "<a href='/Activity/Activity?${Pkey_activity_id}'>${activity_name}</a>"}
+                        , { field: "Branch_name", title: "Branch Name" }
                         , { field: "city_name", title: "City" }
                         , { field: "state_name", title: "State" }
+                        
                     ]
             });
         }
@@ -52,12 +52,12 @@
 
 
     $scope.GetBranchData = function () {
-        //debugger;
+        debugger;
         AjsFactory.getActivityDetailsData()
             .then(function (response) {
 
                 if (response.data.length != 0) {
-                    //debugger;
+                    debugger;
                     dataItem = JSON.parse(response.data);
                     // var dataItem = { "Table": [{ "Pkey_Branch_id": 15, "Branch_name": "lower parel", "address1": "st. VG Road", "address2": "FA plaza", "address3": "werwe@dfs.com", "pincode": 432432, "city": "Mumbai", "state": "Maharastra", "country": null, "created_by": 0, "created_on": "2018-09-21T00:06:42.353", "modified_by": 0, "modified_on": "2018-09-21T00:06:42.353", "deleted_by": 0, "deleted_on": "2018-09-21T00:06:42.353", "is_delete": 0 }, { "Pkey_Branch_id": 18, "Branch_name": "Dadar", "address1": "CA Road", "address2": "Mumbai East", "address3": "gdfs.dsh@gmaill.com", "pincode": 435343, "city": "Mumbai", "state": "Maharastra", "country": null, "created_by": 0, "created_on": "2018-09-21T15:59:21.15", "modified_by": 0, "modified_on": "2018-09-21T15:59:21.15", "deleted_by": 0, "deleted_on": "2018-09-21T15:59:21.15", "is_delete": 0 }] };
                     //var dataItem = [{ "Pkey_Branch_id": 15, "Branch_name": "lower parel", "address1": "st. VG Road", "address2": "FA plaza", "address3": "werwe@dfs.com", "pincode": 432432, "city": "Mumbai", "state": "Maharastra", "country": null, "created_by": 0, "created_on": "2018-09-21T00:06:42.353", "modified_by": 0, "modified_on": "2018-09-21T00:06:42.353", "deleted_by": 0, "deleted_on": "2018-09-21T00:06:42.353", "is_delete": 0 }, { "Pkey_Branch_id": 15, "Branch_name": "lower parel", "address1": "st. VG Road", "address2": "FA plaza", "address3": "werwe@dfs.com", "pincode": 432432, "city": "Mumbai", "state": "Maharastra", "country": null, "created_by": 0, "created_on": "2018-09-21T00:06:42.353", "modified_by": 0, "modified_on": "2018-09-21T00:06:42.353", "deleted_by": 0, "deleted_on": "2018-09-21T00:06:42.353", "is_delete": 0 }, { "Pkey_Branch_id": 15, "Branch_name": "lower parel", "address1": "st. VG Road", "address2": "FA plaza", "address3": "werwe@dfs.com", "pincode": 432432, "city": "Mumbai", "state": "Maharastra", "country": null, "created_by": 0, "created_on": "2018-09-21T00:06:42.353", "modified_by": 0, "modified_on": "2018-09-21T00:06:42.353", "deleted_by": 0, "deleted_on": "2018-09-21T00:06:42.353", "is_delete": 0 }, { "Pkey_Branch_id": 15, "Branch_name": "lower parel", "address1": "st. VG Road", "address2": "FA plaza", "address3": "werwe@dfs.com", "pincode": 432432, "city": "Mumbai", "state": "Maharastra", "country": null, "created_by": 0, "created_on": "2018-09-21T00:06:42.353", "modified_by": 0, "modified_on": "2018-09-21T00:06:42.353", "deleted_by": 0, "deleted_on": "2018-09-21T00:06:42.353", "is_delete": 0 }, { "Pkey_Branch_id": 15, "Branch_name": "lower parel", "address1": "st. VG Road", "address2": "FA plaza", "address3": "werwe@dfs.com", "pincode": 432432, "city": "Mumbai", "state": "Maharastra", "country": null, "created_by": 0, "created_on": "2018-09-21T00:06:42.353", "modified_by": 0, "modified_on": "2018-09-21T00:06:42.353", "deleted_by": 0, "deleted_on": "2018-09-21T00:06:42.353", "is_delete": 0 }, { "Pkey_Branch_id": 15, "Branch_name": "lower parel", "address1": "st. VG Road", "address2": "FA plaza", "address3": "werwe@dfs.com", "pincode": 432432, "city": "Mumbai", "state": "Maharastra", "country": null, "created_by": 0, "created_on": "2018-09-21T00:06:42.353", "modified_by": 0, "modified_on": "2018-09-21T00:06:42.353", "deleted_by": 0, "deleted_on": "2018-09-21T00:06:42.353", "is_delete": 0 }, { "Pkey_Branch_id": 15, "Branch_name": "lower parel", "address1": "st. VG Road", "address2": "FA plaza", "address3": "werwe@dfs.com", "pincode": 432432, "city": "Mumbai", "state": "Maharastra", "country": null, "created_by": 0, "created_on": "2018-09-21T00:06:42.353", "modified_by": 0, "modified_on": "2018-09-21T00:06:42.353", "deleted_by": 0, "deleted_on": "2018-09-21T00:06:42.353", "is_delete": 0 }, { "Pkey_Branch_id": 15, "Branch_name": "lower parel", "address1": "st. VG Road", "address2": "FA plaza", "address3": "werwe@dfs.com", "pincode": 432432, "city": "Mumbai", "state": "Maharastra", "country": null, "created_by": 0, "created_on": "2018-09-21T00:06:42.353", "modified_by": 0, "modified_on": "2018-09-21T00:06:42.353", "deleted_by": 0, "deleted_on": "2018-09-21T00:06:42.353", "is_delete": 0 }, { "Pkey_Branch_id": 15, "Branch_name": "lower parel", "address1": "st. VG Road", "address2": "FA plaza", "address3": "werwe@dfs.com", "pincode": 432432, "city": "Mumbai", "state": "Maharastra", "country": null, "created_by": 0, "created_on": "2018-09-21T00:06:42.353", "modified_by": 0, "modified_on": "2018-09-21T00:06:42.353", "deleted_by": 0, "deleted_on": "2018-09-21T00:06:42.353", "is_delete": 0 }, { "Pkey_Branch_id": 15, "Branch_name": "lower parel", "address1": "st. VG Road", "address2": "FA plaza", "address3": "werwe@dfs.com", "pincode": 432432, "city": "Mumbai", "state": "Maharastra", "country": null, "created_by": 0, "created_on": "2018-09-21T00:06:42.353", "modified_by": 0, "modified_on": "2018-09-21T00:06:42.353", "deleted_by": 0, "deleted_on": "2018-09-21T00:06:42.353", "is_delete": 0 }, { "Pkey_Branch_id": 15, "Branch_name": "lower parel", "address1": "st. VG Road", "address2": "FA plaza", "address3": "werwe@dfs.com", "pincode": 432432, "city": "Mumbai", "state": "Maharastra", "country": null, "created_by": 0, "created_on": "2018-09-21T00:06:42.353", "modified_by": 0, "modified_on": "2018-09-21T00:06:42.353", "deleted_by": 0, "deleted_on": "2018-09-21T00:06:42.353", "is_delete": 0 }, { "Pkey_Branch_id": 15, "Branch_name": "lower parel", "address1": "st. VG Road", "address2": "FA plaza", "address3": "werwe@dfs.com", "pincode": 432432, "city": "Mumbai", "state": "Maharastra", "country": null, "created_by": 0, "created_on": "2018-09-21T00:06:42.353", "modified_by": 0, "modified_on": "2018-09-21T00:06:42.353", "deleted_by": 0, "deleted_on": "2018-09-21T00:06:42.353", "is_delete": 0 }, { "Pkey_Branch_id": 18, "Branch_name": "Hyd", "address1": "CA Road", "address2": "Mumbai East", "address3": "gdfs.dsh@gmaill.com", "pincode": 435343, "city": "Mumbai", "state": "Maharastra", "country": null, "created_by": 0, "created_on": "2018-09-21T15:59:21.15", "modified_by": 0, "modified_on": "2018-09-21T15:59:21.15", "deleted_by": 0, "deleted_on": "2018-09-21T15:59:21.15", "is_delete": 0 }];

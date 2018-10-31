@@ -7,16 +7,18 @@ namespace SportsAPP.Models
 {
     public class UserDetailsDTO
     {
-        public Int64 Pkey_User_id { get; set; }
-        public String User_name { get; set; }
+        public Int64 UserId { get; set; }
+        public String UserName { get; set; }
         public String Password { get; set; }
-        public String First_name { get; set; }
-        public String Last_name { get; set; }
-        public Int64 Mobile_no { get; set; }
-        public String Email_id { get; set; }
-
+        public String FirstName { get; set; }
+        public String LastName { get; set; }
+        public Int64 MobileNumber { get; set; }
+        public String EmailId { get; set; }
+        public int NoOfAttempts { get; set; }
+        public Boolean IsLoginActive { get; set; }
+        public Boolean IsActive { get; set; }
         public int Type { get; set; }
-        public int UserID { get; set; }
-        public int IsDeleted { get; set; }
+        public Int64 CurrUserId { get; set; }
+
     }
 }

@@ -33,15 +33,11 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="inputcategory">Category</label>
-                        <Select class="form-control" id="inputcategory" ng-change="getAmount(form.category)" ng-model="form.category">
-                            <option value=""> Select Category...</option>
-                            <option value="200">Full Member</option>
-                            <option value="2">Associate Member</option>
-                            <option value="3">Student Member</option>
-                            <option value="4">Youth Member</option>
-                            <option value="5">Transient Member</option>
-                        </Select>
+                        <label for="inputcategory">Category</label>                          
+                        <select class="form-control" required ng-model="form.category" ng-change="getAmount(form.category)"  ng-options="item.id as item.name for item in categoryx">
+                            <option value="">--Select Category-- </option>
+                        </select>
+                        @*{{form.category}}*@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">

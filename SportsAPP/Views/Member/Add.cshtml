@@ -7,7 +7,7 @@
 <script src="~/AngularJS/AjsFactory/AjsFactory.js"></script>
 
 
-<div ng-controller="AddMemberController" ng-init="form.paidby=true; form.BranchName = 4" >
+<div ng-controller="AddMemberController" ng-init="form.paidby=true; form.BranchName = 4">
 
     <div class="row page-tilte align-items-center">
         <div class="col-md-auto">
@@ -29,7 +29,7 @@
 
             <div class="card-body">
 
-                <form name="formx"  ng-submit="submitForm()">
+                <form name="formx" ng-submit="submitForm()" ng-init="form.BranchId=2">
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputmember4">Member Id</label>
@@ -37,7 +37,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputreceiptno">Receipt No</label>
-                            <input type="text" class="form-control" id="txtreceiptno" placeholder="Receipt No" ng-disabled="true" ng-model="form.ReceiptNo" />
+                            <input type="text" class="form-control" id="txtreceiptno" placeholder="Receipt No" ng-disabled="false" ng-model="form.ReceiptNo" />
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputfirst4">Member First Name</label>
@@ -53,16 +53,13 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputgender">Gender</label>
-                            <select id="txtgender" class="form-control" ng-model="form.Gender" required>
+                            <select class="form-control" ng-options="item.id as item.name for item in Genderx" ng-model="form.Gender" required>
                                 <option value="">Select Gender...</option>
-                                <option value="1">Male</option>
-                                <option value="2">Female</option>
-                                <option value="3">Other</option>
                             </select>
                         </div>
                         @*<div class="form-group col-md-1">
-               Renewal <input type="checkbox" class="form-control" ng-model="form.renewal"/>
-        </div>*@
+                                   Renewal <input type="checkbox" class="form-control" ng-model="form.renewal"/>
+                            </div>*@
 
                         <div class="form-group col-md-6">
                             <label for="inputage">Age</label>
@@ -70,54 +67,42 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputQualification">Qualification</label>
-                            <select id="txtqualification" class="form-control" ng-model="form.qualification">
+                            <select class="form-control" ng-options="item.id as item.name for item in Qualificationx" ng-model="form.qualification">
                                 <option value="">Select Qualification...</option>
-                                <option value="1">UG</option>
-                                <option value="2">PG</option>
+
                             </select>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputReligion">Religion</label>
-                            <select id="txtreligion" class="form-control" ng-model="form.religion">
+                            <select id="txtreligion" class="form-control" ng-model="form.religion" ng-options="item.id as item.name for item in Religionx">
                                 <option value="">Select Religion...</option>
-                                <option value="1">Hinduism</option>
-                                <option value="2">Islam</option>
-                                <option value="3">Buddhism</option>
-                                <option value="4">Judaism</option>
-                                <option value="5">Christianity</option>
-                                <option value="6">Sikhism</option>
                             </select>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputmaritalstatus">Marital Status</label>
-                            <select id="txtmaritalstatus" class="form-control" required ng-model="form.maritalstatus">
+                            <select id="txtmaritalstatus" class="form-control" required ng-model="form.maritalstatus" ng-options="item.id as item.name for item in maritalstatusx">
                                 <option value=""> Select Marital Status...</option>
-                                <option value="1">Single</option>
-                                <option value="2">Married</option>
                             </select>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputBranch4">Branch Name</label>
-                            <select class="form-control" required ng-model="form.BranchName" ng-options="item.Pkey_Branch_id as item.BranchName for item in branchLst">
-                                <option value="">--Select Branch-- </option>
+                            <select class="form-control" required ng-model="form.BranchId" ng-options="item.Pkey_Branch_id as item.BranchName for item in branchLst">
+                                <option value="">Select Branch... </option>
                             </select>
                             @*<select class="form-control" id="ddlBranch" ng-model="form.BranchName">
-                                <option value="">Select Branch...</option>
-                                <option value="1">Maharastra</option>
-                                <option value="2">Madhya Pradesh</option>
-                                <option value="3">Gujrat</option>
-                            </select>*@
+                                    <option value="">Select Branch...</option>
+                                    <option value="1">Maharastra</option>
+                                    <option value="2">Madhya Pradesh</option>
+                                    <option value="3">Gujrat</option>
+                                </select>*@
                         </div>
 
                         <div class=" form-group col-md-6">
                             <label for="inputprofession">Profession</label>
-                            <select id="txtprofession" class="form-control" ng-model="form.profession">
+                            <select id="txtprofession" class="form-control" ng-model="form.profession" ng-options="item.Pkey_Professional_QualificationId as item.professional_qualifications for item in profQualiLst">
                                 <option value="">Select Profession...</option>
-                                <option value="1">Doctor</option>
-                                <option value="2">Teacher</option>
-                                <option value="3">Engineer</option>
-                                <option value="4">Artist</option>
-                            </select>
+                             </select>
+
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputcategory">Category</label>
@@ -137,32 +122,30 @@
 
                         <div class="form-group col-md-6">
                             <label for="inputpaidby">Paid By</label>
-                            <select id="txtpaidby" class="form-control" required ng-model="form.paidby">
-                                <option value="0">Select Type...</option>
-                                <option value="1">Cash</option>
-                                <option value="2">Cheque</option>
-                                <option value="3">DD</option>
-                            </select>
-                        </div>
+                                <select class="form-control" ng-options="item.id as item.name for item in paidbyx" ng-model="form.paidby">
+                                    <option value="">Select Type...</option>
+
+                                </select>
+</div>
                         <div class="form-group col-md-6">
-                            <label for="inputchequeno">cheque Number</label>
-                            <input type="text" class="form-control"  ng-disabled="form.paidby != 2" id="txtchequeno" placeholder="Cheque No"  ng-model="form.chequeno" />
+                            <label for="inputchequeno">cheque Number/DD Number</label>
+                            <input type="text" class="form-control" ng-disabled="form.paidby != 2" id="txtchequeno" placeholder="Cheque No" ng-model="form.chequeno" />
                         </div>
 
                         <div class="form-group col-md-6" ng-hide="form.paidby != 2">
                             <label for="inputbankname">Bank Name</label>
-                            <input type="text" class="form-control" id="txtbankname" placeholder="Bank Name"  ng-model="form.bankname" />
+                            <input type="text" class="form-control" id="txtbankname" placeholder="Bank Name" ng-model="form.bankname" />
                         </div>
 
                         <div class="form-group col-md-6" ng-hide="form.paidby != 2">
-                            <label for="inputpayDate"> Date</label>
+                            <label for="inputpayDate"> Cheque Date/DD Date</label>
                             <input type="date" class="form-control" ng-model="form.paydate" />
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputGSTNo">GST No.</label>
-                            <input type="text" class="form-control"  id="txtGSTNO" placeholder="GST Number" ng-model="form.gstno" />
+                            <input type="text" class="form-control" id="txtGSTNO" placeholder="GST Number" ng-model="form.gstno" />
                         </div>
-                    
+
                         <div class="form-group col-md-3">
                             <label for="inputstartdate">Start Date</label>
                             <input type="date" class="form-control" ng-model="form.startdate" ng-change='checkErr(form.startdate,form.expirydate)' />
@@ -171,7 +154,7 @@
                             <label for="inputExpiryDate">Expiry Date</label>
                             <input type="date" class="form-control" ng-model="form.expirydate" ng-change='checkErr(form.startdate,form.expirydate)' />
                         </div>
-                
+
                         <div class="form-group col-md-6">
                             <label for="inputoffTelNo">Office Tel No.</label>
                             <input type="text" class="form-control" id="txtofctelno" placeholder=" Office Tel No." ng-model="form.officetelno" />
@@ -180,24 +163,24 @@
                             <label for="inputresidentialtelno">Residential Tel No.</label>
                             <input type="text" class="form-control" id="txtresidentialtelno " placeholder="Residential Tel No." ng-model="form.residentialtelNo" />
                         </div>
-                    
+
                         <div class="form-group  col-md-6">
                             <label for="inputspecial interest">Special Interest </label>
-                            <select class="form-control" id="txtspecialinterest " ng-model="form.specialinterest">
+                            <select class="form-control" id="txtspecialinterest " ng-model="form.specialinterest" ng-options="item.pkey_special_interests_id as item.special_interests for item in specialinterestLst">
                                 <option value="">Select Special Interest </option>
-                                <option value="1">Basketball</option>
-                                <option value="2">Table Tennis</option>
-                                <option value="3">Swimming</option>
-                                <option value="4">Fitness Centre</option>
-                                <option value="5">Roller Skating</option>
+                                @*<option value="1">Basketball</option>
+                                    <option value="2">Table Tennis</option>
+                                    <option value="3">Swimming</option>
+                                    <option value="4">Fitness Centre</option>
+                                    <option value="5">Roller Skating</option>*@
                             </select>
                             <br />
 
                             @*<button type="reset" class="btn btn-primary"> Delete</button>*@
                         </div>
-                   
-        <br />
-        <br />
+
+                        <br />
+                        <br />
                         <div class="form-group col-md-6">
                             <label for="inputpanno">PAN No. </label>
                             <input type="text" class="form-control" id="txtpanno" placeholder="PAN Number" ng-model="form.panno" />
@@ -214,18 +197,18 @@
                         </div>
                     </div>
                     <div class="form-row">
-                        
+
                         @*<div class="form-group col-md-6">
-                <label for="inputActivity4">Activity</label>
-                <select class="form-control" id="ddlActivity" ng-model="form.Activity">
-                    <option value="">--Select-Activity--</option>
-                    <option value="1">Basketball</option>
-                    <option value="2">Table Tennis</option>
-                    <option value="3">Swimming</option>
-                    <option value="4">Fitness Centre</option>
-                    <option value="5">Roller Skating</option>
-                </select>
-            </div>*@
+                                <label for="inputActivity4">Activity</label>
+                                <select class="form-control" id="ddlActivity" ng-model="form.Activity">
+                                    <option value="">--Select-Activity--</option>
+                                    <option value="1">Basketball</option>
+                                    <option value="2">Table Tennis</option>
+                                    <option value="3">Swimming</option>
+                                    <option value="4">Fitness Centre</option>
+                                    <option value="5">Roller Skating</option>
+                                </select>
+                            </div>*@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-9">
@@ -236,20 +219,15 @@
 
                         <div class="form-group col-md-5">
                             <label for="inputCity">City</label>
-                            <select class="form-control" id="txtCity" ng-model="form.pCity">
+                            <select class="form-control" id="txtcity" ng-model="form.pCity" ng-options="item.pkey_CityId  as item.CityName for item in citydata">
                                 <option value="">Select City...</option>
-                                <option value="1">Mumbai</option>
-                                <option value="2">Nagpur</option>
-                                <option value="3">other</option>
                             </select>
+
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputState">State</label>
-                            <select id="txtState" class="form-control" ng-model="form.pState">
+                            <select id="txtState" class="form-control" ng-model="form.pState" ng-options="item.pkey_state_id as item.state_name for item in statedata">
                                 <option value="">Select State...</option>
-                                <option value="1">Maharastra</option>
-                                <option value="2">Madhya Pradesh</option>
-                                <option value="3">Gujrat</option>
                             </select>
                         </div>
                         <div class="form-group col-md-3">
@@ -260,7 +238,7 @@
                     <br />  <br />
 
                     <div class="custom-control custom-checkbox mb-3">
-                        <input type="checkbox" class="custom-control-input" ng-click="CoppyAddress()" ng-model="chkCoppy" id="customControlValidation1" >
+                        <input type="checkbox" class="custom-control-input" ng-click="CoppyAddress()" ng-model="chkCoppy" id="customControlValidation1">
                         <label class="custom-control-label" for="customControlValidation1">Same As Above</label>
                         <div class="invalid-feedback">Example invalid feedback text</div>
                     </div>
@@ -268,25 +246,20 @@
                     <div class="form-row">
                         <div class="form-group col-md-9">
                             <label for="inputAddress2">Local Address </label>
-                            <input type="text" class="form-control" id="txtlocalAddress" placeholder="Apartment, studio, or floor" ng-model="form.LAddress2">
+                            <input type="text" class="form-control" placeholder="Apartment, studio, or floor" ng-model="form.LAddress2">
                         </div>
                         <div class="form-group col-md-5">
                             <label for="inputCity">City</label>
 
-                            <select class="form-control" id="txtCity" ng-model="form.LCity">
+                            <select class="form-control" id="txtcity" ng-model="form.LCity" ng-options="item.pkey_CityId as item.CityName for item in citydata">
                                 <option value="">Select City...</option>
-                                <option value="1">Mumbai</option>
-                                <option value="2">Nagpur</option>
-                                <option value="3">other</option>
                             </select>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputState">State</label>
-                            <select id="txtState" class="form-control" ng-model="form.LState">
+                            <select id="txtState" class="form-control" ng-model="form.LState" ng-options="item.pkey_state_id as item.state_name for item in statedata">
                                 <option value="">Select State...</option>
-                                <option value="1">Maharastra</option>
-                                <option value="2">Madhya Pradesh</option>
-                                <option value="3">Gujrat</option>
+
                             </select>
                         </div>
                         <div class="form-group col-md-3">
@@ -310,20 +283,14 @@
                         <div class="form-group col-md-5">
                             <label for="inputCity">City</label>
 
-                            <select class="form-control" id="txtCity" ng-model="form.City">
+                            <select class="form-control" id="txtcity" ng-model="form.City" ng-options="item.pkey_CityId as item.CityName for item in citydata">
                                 <option value="">Select City...</option>
-                                <option value="1">Mumbai</option>
-                                <option value="2">Nagpur</option>
-                                <option value="3">other</option>
                             </select>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputState">State</label>
-                            <select id="txtState" class="form-control" ng-model="form.State">
+                            <select id="txtState" class="form-control" ng-model="form.State" ng-options="item.pkey_state_id as item.state_name for item in statedata">
                                 <option value="">Select State...</option>
-                                <option value="1">Maharastra</option>
-                                <option value="2">Madhya Pradesh</option>
-                                <option value="3">Gujrat</option>
                             </select>
                         </div>
                         <div class="form-group col-md-3">
@@ -333,21 +300,22 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label for="inputcorrespondenceaddress">Correspondence Address</label>
-                        <select id="correspondenceaddress" class="form-control" ng-model="form.correspondenceaddress">
-                            <option value="">Select Type...</option>
-                            <option value="1">Permanent Address</option>
-                            <option value="2">Local Address</option>
+                       
+                            <select id="txtmaritalstatus" class="form-control" required ng-model="form.correspondenceaddress" ng-options="item.id as item.name for item in CorresAddrx">
+                                <option value="">Select Type...</option>
 
-                        </select>
-                    </div>
+
+                            </select>
+</div>
                     <button type="submit" class="btn btn-primary">Submit</button>
 
-                  
+
                 </form>
 
             </div>
         </div>
 
     </div>
+    {{temp}}
 </div>
 

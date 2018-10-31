@@ -15,7 +15,7 @@ namespace SportsAPP.Repository.Data
         //get branch
         public DataSet GetActivity()
         {
-            string insertProcedure = "[Get_ActivityMasterTEMP]";
+            string insertProcedure = "[Get_ActivityMaster]";
 
             Dictionary<string, string> input_parameters = new Dictionary<string, string>();
 

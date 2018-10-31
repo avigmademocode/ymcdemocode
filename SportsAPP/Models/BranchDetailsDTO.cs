@@ -35,6 +35,8 @@ namespace SportsAPP.Models
         public int State { get; set; }
         public int country { get; set; }
         public Int64 Zip { get; set; }
+        public String city_name { get; set; }
+        public String state_name { get; set; }
         public int UserID { get; set; }
         public int is_delete { get; set; }
         public int Type { get; set; }
