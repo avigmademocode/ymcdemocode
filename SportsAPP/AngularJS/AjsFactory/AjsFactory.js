@@ -46,7 +46,11 @@
 
     //get branch data
     dataFactory.getBranchDetailsData = function () {
+<<<<<<< HEAD
        // debugger;
+=======
+        //debugger;
+>>>>>>> 9858edd3bc038be83f5a55553c9526ef0455afe9
         return $http.post('/Branch/GetBranch');
 
     };
@@ -89,7 +93,11 @@
 
     //getmember branch data
     dataFactory.getBranchData = function () {
+<<<<<<< HEAD
        // debugger;
+=======
+        //debugger;
+>>>>>>> 9858edd3bc038be83f5a55553c9526ef0455afe9
         return $http.post('/Member/GetMemberBranchData');
     };
 
