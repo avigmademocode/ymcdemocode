@@ -13,6 +13,7 @@ namespace SportsAPP.Controllers
     public class MemberController : Controller
     {
         MemberDetailData memberDetailData = new MemberDetailData();
+        BranchDetailsData branchDetailsData = new BranchDetailsData();
         // GET: Member
         public ActionResult Add()
         {
@@ -75,7 +76,7 @@ namespace SportsAPP.Controllers
 
         public JsonResult GetMemberBranchData()
         {
-            BranchDetailsData branchDetailsData = new BranchDetailsData();
+           
             var Data = branchDetailsData.GetBranchData();
             return new JsonResult { Data = Data, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
@@ -151,5 +152,13 @@ namespace SportsAPP.Controllers
         //    return new JsonResult { Data = Data, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
 
         //}
+
+
+        public JsonResult GetGategoryData()
+        {
+            var Data = branchDetailsData.GetCategoryData();
+            return new JsonResult { Data = Data, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
+
     }
 }

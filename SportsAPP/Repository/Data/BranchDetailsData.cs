@@ -107,5 +107,32 @@ namespace SportsAPP.Repository.Data
             return objDynamic;
 
         }
+
+
+        //////
+        public List<dynamic> GetCategoryData()
+        {
+            List<dynamic> objDynamic = new List<dynamic>();
+            string insertProcedure = "[Get_Category_Master]";
+
+            Dictionary<string, string> input_parameters = new Dictionary<string, string>();
+
+
+            DataSet ds = obj.SelectSql(insertProcedure, input_parameters);
+
+            var myEnumerablex = ds.Tables[0].AsEnumerable();
+
+            List<CategoryDTO> ordtlx =
+                      (from item in myEnumerablex
+                       select new CategoryDTO
+                       {
+                           pkey_category_id = item.Field<Int64>("pkey_category_id"),
+                           categoryname = item.Field<String>("categoryname"),
+                           Amount = item.Field<decimal>("Amount"),
+                       }).ToList();
+            objDynamic.Add(ordtlx);
+            return objDynamic;
+
         }
     }
+ }

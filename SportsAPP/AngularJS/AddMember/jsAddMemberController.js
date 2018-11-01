@@ -242,19 +242,13 @@
 
     //get branch data
     $scope.GetBranchData = function () {
-<<<<<<< HEAD
-       // debugger;
 
-        AjsFactory.getBranchData()
-            .then(function (response) {
-         //       debugger;
-=======
-        //debugger;
+
 
         AjsFactory.getBranchData()
             .then(function (response) {
                 //debugger;
->>>>>>> 9858edd3bc038be83f5a55553c9526ef0455afe9
+
                 //alert(response.data.length);
                 if (response.data.length != 0) {
                     //debugger;

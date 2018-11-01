@@ -7,119 +7,108 @@
 <script src="~/AngularJS/MembershipRenewal/jsMembershipRenewalController.js"></script>
 <script src="~/AngularJS/AjsFactory/AjsFactory.js"></script>
 
-
-
-<div ng-controller="MembershipRenewalController" >
-    <div class="row page-tilte align-items-center">
-        <div class="col-sm-6 col-sm-offset-3">
+<div ng-controller="MembershipRenewalController">
+    <div class="row">
+        <div class="col-md-8 col-xs-4 offset-2" style="background-color:#fff;border:1px solid #ced4da">
+           <br />
             <h1 class="weight-300 h3 title"> Renewal of Membership</h1>
-            
-        </div>
-    </div>
-    <div class="col-md-6 col-md-offset-3">
-        <div class="card mb-4">
-            <div class="card-body">
-                <form name="formx" action="" ng-submit="submitForm()">
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="MemberName">Member Name</label>
-                            <select class="form-control" id="txtmembername" ng-model="form.memberId">
-                                <option ng-repeat="member in memberLst" value={{member.pkey_member_id}}>{{member.first_name}}</option>
-                            </select>
-                            @*<input type="text" class="form-control"  ng-model="form.membername" required />*@
-                            @*<input type="text" id="MemberName" ng-model="namefill" ng-keyup="complete(namefill)" class="form-control" />
-        <ul class="list-group">
-            <li class="list-group-item" ng-repeat="namedata in filterName" ng-click="fillTextbox(namedata)">{{namedata}}</li>
-        </ul>*@
-                        </div>
-                     
-                        <div class="form-group col-md-6">
-                            <label for="serviceTax">Service Tax Y/N</label>
-                            <select id="txttaxvalue" class="form-control" ng-model="form.servicestaxyes" required>
-                                <option value="">Select Tax Type</option>
-                                <option value="1">Yes</option>
-                                <option value="2">No</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="dateofbirth">Date Of Birth</label>
-                            <input type="date" class="form-control" id="dateofbirth" ng-model="form.dateofbirth">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputage">Age</label>
-                            <input type="text" id="txtage" class="form-control" ng-model="form.age" />
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputPrevExp">Previous Expiry</label>
-                            <input type="text" class="form-control" id="txtprevexp" ng-model="form.previousexp" />
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputcategory">Category</label>
-                            <select class="form-control" id="txtcategory" ng-model="form.category">
-                                <option value=""> Select Category</option>
-                                <option value="1">Full Member</option>
-                                <option value="2">Associate Member</option>
-                                <option value="3">Student Member</option>
-                                <option value="4">Youth Member</option>
-                                <option value="5">Transient Member</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputentrancefee">Entrance Fee</label>
-                            <input type="text" class="form-control" id="txtentrancefee" ng-model="form.entrancefee" />
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputannualfee">Annual Fee</label>
-                            <input type="text" class="form-control" id="txtamount" ng-model="form.annualfee" required />
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputamount">Amount</label>
-                            <input type="text" class="form-control" id="txtamount" ng-model="form.amount" required />
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputpaidby"> Paid By</label>
-                            <select class="form-control" id="paidby" ng-model="form.paidby">
-                                <option value="">Select Type</option>
-                                <option value="1">Cash</option>
-                                <option value="2">Cheque</option>
-                                <option value="3">DD</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputchequeno">Cheque No.</label>
-                            <input type="text" class="form-control" id="txtchequeno" ng-model="form.chequeno" required />
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputchequedate">Cheque Date</label>
-                            <input type="date" class="form-control" id="txtchequedate" ng-model="form.chequedate" required />
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputbankname">Bank Name</label>
-                            <input type="text" class="form-control" id="txtbankname" ng-model="form.bankname" />
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputreceiptno">Receipt No.</label>
-                            <input type="text" id="txtreceiptno" class="form-control" ng-model="form.receiptno" />
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputGSTNO">GST No.</label>
-                            <input type="text" class="form-control" id="txtgstno" ng-model="form.gstno" />
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputdate">Start Date</label>
-                            <input type="date" class="form-control" id="txtdate" ng-model="form.startdate" />
-                        </div>
-
-                        <div class="form-group col-md-6">
-                            <label for="inputexpirydate">Expiry Date</label>
-                            <input type="date" class="form-control" id="txtexpirydate" ng-model="form.expirydate" />
-                        </div>
+            <hr />
+            <br /><br />
+            <form name="formx" ng-submit="submitForm()">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="branch">Branch Name:</label>
+                        <select class="form-control" required ng-model="form.Branch" ng-change="memberget(form.Branch)" ng-options="item.Pkey_Branch_id as item.Branch_name for item in BranchLst">
+                            <option value="">--Select Branch-- </option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="MemberName">Member Name:</label>
+                        <select class="form-control" required ng-model="form.Member" ng-change="clickmember(form.Member)" ng-options="itemx as itemx.Full_name for itemx in memberDataFilter">
+                            <option value="">--Select Member-- </option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputdate">Date of birth</label>
+                        <input type="date" class="form-control" readonly ng-model="form.BoDdate" />
                     </div>
 
-                    <button type="submit" class="btn btn-danger">Submit</button>
-                </form>
-            </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputexpirydate">Age</label>
+                        <input type="text" class="form-control" readonly ng-model="form.Age" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="serviceTax">Service Tax Y/N</label>
+                        <select id="txttaxvalue" class="form-control" ng-init="form.servicestaxyes = 0" ng-model="form.servicestaxyes" required ng-options="itemx.id as itemx.Tax for itemx in servicesTax">
+                            <option value="">--Select--</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputPrevExp">Previous Expiry</label>
+                        <input type="number" class="form-control" min="1" id="txtprevexp" ng-model="form.previousexp" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputcategory">Category</label>
+                        <select class="form-control" id="txtcategory" ng-model="form.category" ng-change="fillpaid(form.category)" required ng-options="itemx as itemx.categoryname for itemx in Categories">
+                            <option value=""> --Select--</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputentrancefee">Entrance Fee</label>
+                        <input type="number" class="form-control" min="1" id="txtentrancefee" ng-model="form.entrancefee" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputannualfee">Annual Fee</label>
+                        <input type="number" class="form-control" min="1" id="txtamount" ng-model="form.annualfee" required />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputamount">Amount</label>
+                        <input type="text" class="form-control" id="txtamount" ng-model="form.amount" readonly />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputpaidby"> Paid By</label>
+                        <select class="form-control" id="paidby" ng-model="form.paidby" ng-change="clkpaid(form.paidby)" required ng-options="itemx.id as itemx.Name for itemx in paidx">
+                            <option value="">--Select--</option>
+                        </select>
+
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputchequeno">Cheque/DD No.</label>
+                        <input type="text" class="form-control" value="0" id="txtchequeno" ng-disabled="chequeboxhide" ng-model="form.chequeno" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputchequedate">Cheque/DD Date</label>
+                        <input type="date" class="form-control" id="txtchequedate" value="null" ng-disabled="chequeboxhide" ng-model="form.chequedate" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputbankname">Bank Name</label>
+                        <input type="text" class="form-control" id="txtbankname" value="null" ng-model="form.bankname" ng-disabled="chequeboxhide" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputreceiptno">Receipt No.</label>
+                        <input type="text" id="txtreceiptno" class="form-control" ng-model="form.receiptno" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputGSTNO">GST No.</label>
+                        <input type="text" class="form-control" id="txtgstno" ng-model="form.gstno" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputdate">Start Date</label>
+                        <input type="date" class="form-control" ng-model="form.startdate" ng-change='checkErr(form.startdate,form.expirydate)' />
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="inputexpirydate">Expiry Date</label>
+                        <input type="date" class="form-control" ng-model="form.expirydate" ng-change='checkErr(form.startdate,form.expirydate)' />
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-danger">Submit</button>
+            </form>
+            {{Categories}}
+            <br /><br />
+            {{form.category}}
         </div>
     </div>
-    {{countryList}}
+    <br /><br />
+    {{FirsrName}}
 </div>
