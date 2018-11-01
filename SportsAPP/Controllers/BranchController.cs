@@ -32,7 +32,7 @@ namespace SportsAPP.Controllers
             return new JsonResult { Data = Data, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
 
-
+        //add batch data
         public JsonResult AddNewBrach(BranchDetailsUI Model)
         {
             BranchDetailsData obj = new BranchDetailsData();
@@ -50,6 +50,14 @@ namespace SportsAPP.Controllers
         {
             StateDetailsData stateDetailsData = new StateDetailsData();
             var Data = stateDetailsData.GetStateData();
+            return new JsonResult { Data = Data, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
+
+        //get branch data by id
+        public JsonResult GetBranchDetailData(BranchDetailsUI branchDetailsUI)
+        {
+            BranchDetailsData branchDetailsData = new BranchDetailsData();
+            var Data =branchDetailsData.GetBranchDataByID(branchDetailsUI);
             return new JsonResult { Data = Data, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
     }

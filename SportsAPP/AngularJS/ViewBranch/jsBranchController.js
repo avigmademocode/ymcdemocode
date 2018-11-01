@@ -29,7 +29,7 @@
                                 fields: {
                                     Branch_name: { type: "string" },
                                     address1: { type: "string" },
-                                    address3: { type: "string" },
+                                    BranchEmailId: { type: "string" },
                                     pincode: { type: "string" },
                                     city_name: { type: "string" },
                                     state_name: { type: "string" },
@@ -42,8 +42,8 @@
                     [
                         { field: "Branch_name", title: "Branch Name", template: "<a href='/Branch/Add/Index?${Pkey_Branch_id}'>${Branch_name}</a>"}
                         , { field: "address1", title: "Address" }
-                        , { field: "address3", title: "Email" }
-                        , { field: "pincode", title: "Zip" }
+                        , { field: "BranchEmailId", title: "Branch Email ID" }
+                        , { field: "pincode", title: "Pincode" }
                         , { field: "city_name", title: "City Name" }
                         , { field: "state_name", title: "State Name" }
                     ]

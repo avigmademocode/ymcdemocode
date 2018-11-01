@@ -44,11 +44,17 @@
 
 
 
-    //get branch data
+    //get branch data for view 
     dataFactory.getBranchDetailsData = function () {
         debugger;
         return $http.post('/Branch/GetBranch');
 
+    };
+
+    //get branch data for edit
+    dataFactory.GetBranchData = function (data) {
+        debugger;
+        return $http.post('/Branch/GetBranchDetailData',data);
     };
 
     //get member data
@@ -89,7 +95,7 @@
 
     //getmember branch data
     dataFactory.getBranchData = function () {
-
+        debugger;
         return $http.post('/Member/GetMemberBranchData');
     };
 
@@ -185,6 +191,8 @@
         //debugger;
         return $http.post('/Member/GetGategoryData');
     };
+
+   
 
     return dataFactory;
 }]);

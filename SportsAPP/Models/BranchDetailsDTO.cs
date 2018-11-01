@@ -25,16 +25,16 @@ namespace SportsAPP.Models
     {
        // public int BranchId { get; set; }
        public Int64 Pkey_Branch_id { get; set; }
-        public string BranchName { get; set; }
-        public string BranchEmail { get; set; }
-        public int BranchPhone { get; set; }
-        public string Address1 { get; set; }
-        public string Address2 { get; set; }
-        public string FullAddress { get; set; }
-        public int City { get; set; }
-        public int State { get; set; }
-        public int country { get; set; }
-        public Int64 Zip { get; set; }
+        public String Branch_name { get; set; }
+        public String BranchEmailId { get; set; }
+        public Int64? phoneno { get; set; }
+        public String address1 { get; set; }
+        public String address2 { get; set; }
+       // public string FullAddress { get; set; }
+        public int? city { get; set; }
+        public int? state { get; set; }
+        public int? country { get; set; }
+        public int? pincode { get; set; }
         public String city_name { get; set; }
         public String state_name { get; set; }
         public int UserID { get; set; }

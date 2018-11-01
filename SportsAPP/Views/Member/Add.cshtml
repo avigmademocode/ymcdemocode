@@ -58,8 +58,8 @@
                             </select>
                         </div>
                         @*<div class="form-group col-md-1">
-                                   Renewal <input type="checkbox" class="form-control" ng-model="form.renewal"/>
-                            </div>*@
+                           Renewal <input type="checkbox" class="form-control" ng-model="form.renewal"/>
+                    </div>*@
 
                         <div class="form-group col-md-6">
                             <label for="inputage">Age</label>
@@ -86,34 +86,37 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputBranch4">Branch Name</label>
-                            <select class="form-control" required ng-model="form.BranchId" ng-options="item.Pkey_Branch_id as item.BranchName for item in branchLst">
+                            <select class="form-control" required ng-model="form.BranchId" ng-options="item.Pkey_Branch_id as item.Branch_name for item in branchLst">
                                 <option value="">Select Branch... </option>
                             </select>
                             @*<select class="form-control" id="ddlBranch" ng-model="form.BranchName">
-                                    <option value="">Select Branch...</option>
-                                    <option value="1">Maharastra</option>
-                                    <option value="2">Madhya Pradesh</option>
-                                    <option value="3">Gujrat</option>
-                                </select>*@
+                            <option value="">Select Branch...</option>
+                            <option value="1">Maharastra</option>
+                            <option value="2">Madhya Pradesh</option>
+                            <option value="3">Gujrat</option>
+                        </select>*@
                         </div>
 
                         <div class=" form-group col-md-6">
                             <label for="inputprofession">Profession</label>
                             <select id="txtprofession" class="form-control" ng-model="form.profession" ng-options="item.Pkey_Professional_QualificationId as item.professional_qualifications for item in profQualiLst">
                                 <option value="">Select Profession...</option>
-                             </select>
+                            </select>
 
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputcategory">Category</label>
-                            <select id="txtcategory" class="form-control" ng-change="getAmount(form.category)" ng-model="form.category">
-                                <option value=""> Select Category...</option>
-                                <option value="70000.00">Full Member</option>
-                                <option value="5000.00">Associate Member</option>
-                                <option value="3000.00">Student Member</option>
-                                <option value="4000.00">Youth Member</option>
-                                <option value="3500.00">Transient Member</option>
+                            <select class="form-control" id="txtcategory" ng-model="form.category" ng-change="fillpaid(form.category)" required ng-options="itemx as itemx.categoryname for itemx in Categories">
+                                <option value=""> --Select--</option>
                             </select>
+                            @*<select id="txtcategory" class="form-control" ng-change="getAmount(form.category)" ng-model="form.category">
+                            <option value=""> Select Category...</option>
+                            <option value="70000.00">Full Member</option>
+                            <option value="5000.00">Associate Member</option>
+                            <option value="3000.00">Student Member</option>
+                            <option value="4000.00">Youth Member</option>
+                            <option value="3500.00">Transient Member</option>
+                        </select>*@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputamount">Amount</label>
@@ -122,11 +125,11 @@
 
                         <div class="form-group col-md-6">
                             <label for="inputpaidby">Paid By</label>
-                                <select class="form-control" ng-options="item.id as item.name for item in paidbyx" ng-model="form.paidby">
-                                    <option value="">Select Type...</option>
+                            <select class="form-control" ng-options="item.id as item.name for item in paidbyx" ng-model="form.paidby">
+                                <option value="">Select Type...</option>
 
-                                </select>
-</div>
+                            </select>
+                        </div>
                         <div class="form-group col-md-6">
                             <label for="inputchequeno">cheque Number/DD Number</label>
                             <input type="text" class="form-control" ng-disabled="form.paidby != 2" id="txtchequeno" placeholder="Cheque No" ng-model="form.chequeno" />
@@ -169,10 +172,10 @@
                             <select class="form-control" id="txtspecialinterest " ng-model="form.specialinterest" ng-options="item.pkey_special_interests_id as item.special_interests for item in specialinterestLst">
                                 <option value="">Select Special Interest </option>
                                 @*<option value="1">Basketball</option>
-                                    <option value="2">Table Tennis</option>
-                                    <option value="3">Swimming</option>
-                                    <option value="4">Fitness Centre</option>
-                                    <option value="5">Roller Skating</option>*@
+                            <option value="2">Table Tennis</option>
+                            <option value="3">Swimming</option>
+                            <option value="4">Fitness Centre</option>
+                            <option value="5">Roller Skating</option>*@
                             </select>
                             <br />
 
@@ -199,16 +202,16 @@
                     <div class="form-row">
 
                         @*<div class="form-group col-md-6">
-                                <label for="inputActivity4">Activity</label>
-                                <select class="form-control" id="ddlActivity" ng-model="form.Activity">
-                                    <option value="">--Select-Activity--</option>
-                                    <option value="1">Basketball</option>
-                                    <option value="2">Table Tennis</option>
-                                    <option value="3">Swimming</option>
-                                    <option value="4">Fitness Centre</option>
-                                    <option value="5">Roller Skating</option>
-                                </select>
-                            </div>*@
+                        <label for="inputActivity4">Activity</label>
+                        <select class="form-control" id="ddlActivity" ng-model="form.Activity">
+                            <option value="">--Select-Activity--</option>
+                            <option value="1">Basketball</option>
+                            <option value="2">Table Tennis</option>
+                            <option value="3">Swimming</option>
+                            <option value="4">Fitness Centre</option>
+                            <option value="5">Roller Skating</option>
+                        </select>
+                    </div>*@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-9">
@@ -300,22 +303,23 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label for="inputcorrespondenceaddress">Correspondence Address</label>
-                       
-                            <select id="txtmaritalstatus" class="form-control" required ng-model="form.correspondenceaddress" ng-options="item.id as item.name for item in CorresAddrx">
-                                <option value="">Select Type...</option>
+
+                        <select id="txtmaritalstatus" class="form-control" required ng-model="form.correspondenceaddress" ng-options="item.id as item.name for item in CorresAddrx">
+                            <option value="">Select Type...</option>
 
 
-                            </select>
-</div>
+                        </select>
+                    </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
 
 
                 </form>
 
             </div>
+            {{paidbyx}}
         </div>
-
+        {{form.category}}
     </div>
-    {{temp}}
+    {{branchLst}}
 </div>
 

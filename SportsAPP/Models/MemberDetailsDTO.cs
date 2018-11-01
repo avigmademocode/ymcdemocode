@@ -35,6 +35,7 @@ namespace SportsAPP.Models
         public String exist_memberId { get; set; }
         public Int64 receiptNo { get; set; }
         public Int64 BranchId { get; set; }
+        public String Branch_name { get; set; }
         public string first_name { get; set; }
         public string last_name { get; set; }
         public Int64 mobile_number { get; set; }
@@ -45,7 +46,7 @@ namespace SportsAPP.Models
         public String pan_no { get; set; }
         public DateTime? date_of_birth { get; set; }
         public int renewal { get; set; }
-        public int age { get; set; }
+        public int? age { get; set; }
         public int qualification { get; set; }
         public int religion { get; set; }
         public int marital_Status { get; set; }
@@ -66,7 +67,7 @@ namespace SportsAPP.Models
         public String image_name { get; set; }
         public String image_path { get; set; }
 
-        // public string BranchName { get; set; }
+        
         public string PermAddress1 { get; set; }
         public string PermAddress2 { get; set; }
         public string PermAddress3 { get; set; }

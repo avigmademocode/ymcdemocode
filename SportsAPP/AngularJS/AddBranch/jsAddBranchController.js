@@ -1,5 +1,8 @@
 ﻿HomeApp.controller('AddBranchController', ['$scope', '$window', '$location', 'AjsFactory', function ($scope, $window, $location, AjsFactory) {
 
+    $scope.BranchId = $scope.BranchId ? $scope.BranchId.split('?')[1] : window.location.search.slice(1);
+    alert($scope.BranchId);
+
     //$scope.form.State = 1;
     //$scope.postData = function () {
 
@@ -24,28 +27,36 @@
 
 
 
-
+    //Add the branch data
     $scope.submitForm = function () {
-        //debugger;
+        debugger;
+        var Type;
+        if ($scope.BranchId == 0) {
+            Type= 1;
+        }
+        else {
+             Type = 2;
+        }
+
+
         var bool = true;
         bool = EmailValidation($scope.form.BranchEmail);
-      
-        //formData = $scope.form;
-        //alert(JSON.stringify(formData));
-     //   alert("test");
+     
         var Data = {
-            BranchId: $scope.form.BranchId,
-            BranchName: $scope.form.BranchName,
-            BranchEmail: $scope.form.BranchEmail,
-            BranchPhone: $scope.form.BranchPhone,
+           // BranchId: $scope.BranchId,
+            Branch_name: $scope.form.BranchName,
+            BranchEmailId: $scope.form.BranchEmail,
+            phoneno: $scope.form.BranchPhone,
             FullAddress: $scope.form.Address1 + ' ' + $scope.form.Address2,
             Address1: $scope.form.Address1,
             Address2: $scope.form.Address2,
             City: $scope.form.City,
             State: $scope.form.State,
-            Zip: $scope.form.Zip,
+            pincode: $scope.form.Zip,
+
+            Pkey_Branch_id: $scope.BranchId,
             UserID: 0, //using local stoarge 
-            Type: 1,
+            Type: Type,
             is_delete:1
         }
         alert(JSON.stringify(Data));
@@ -54,6 +65,7 @@
                 debugger;
                 if (response.data.length != 0) {
                     alert('Request has been saved successfully.');
+                   // $scope.getBranchData();
                 }
             });
     };
@@ -101,6 +113,31 @@
         }
     }
     
+    //Edit branch data 
+    $scope.getBranchData = function () {
+        debugger;
+        var Data = {
+            Pkey_Branch_id: $scope.BranchId,
+           // Type:2
+        };
 
+        AjsFactory.GetBranchData(Data)
+            .then(function (response) {
+                debugger;
+                if (response.data.length != 0) {
+                    $scope.form.BranchId = response.data[0][0].Pkey_Branch_id,
+                        $scope.form.BranchName = response.data[0][0].Branch_name;
+                    $scope.form.BranchEmail = response.data[0][0].BranchEmailId;
+                    $scope.form.BranchPhone = response.data[0][0].phoneno;
+                    $scope.form.Address1 = response.data[0][0].address1;
+                    $scope.form.Address2 = response.data[0][0].address2;
+                    $scope.form.BranchEmail = response.data[0][0].BranchEmailId;
+                    $scope.form.City = response.data[0][0].city;
+                    $scope.form.State = response.data[0][0].state;
+                    $scope.form.Zip = response.data[0][0].pincode;
+                }
+            });
+    };
+    $scope.getBranchData();
 
 }]);

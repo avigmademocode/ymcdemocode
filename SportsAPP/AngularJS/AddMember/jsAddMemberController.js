@@ -80,11 +80,12 @@
         console.log(age);
     }
 
-    $scope.getAmount = function (amount) {
-        alert(amount);
-        $scope.form.amount = parseFloat(amount);
-    }
+    //$scope.getAmount = function (amount) {
+    //    alert(amount);
+    //    $scope.form.amount = parseFloat(amount);
+    //}
 
+    
 
     // Add member data
     $scope.submitForm = function () {
@@ -240,6 +241,31 @@
         }
     };
 
+    //category amount display
+    $scope.fillpaid = function (item) {
+        debugger;
+        $scope.form.amount = item.Amount;
+
+    }
+
+
+    // get category
+    $scope.GetcategoryData = function () {
+        debugger;
+        AjsFactory.getcategoryData()
+            .then(function (resopnse) {
+                //debugger;
+                if (resopnse.data[0].length != 0) {
+                    debugger;
+
+                    $scope.Categories = resopnse.data[0];
+                    //resopnse.data;
+                }
+            });
+    };
+    $scope.GetcategoryData();
+
+
     //get branch data
     $scope.GetBranchData = function () {
 
@@ -371,7 +397,7 @@
         }
     }
 
-
+ 
 
 
 
